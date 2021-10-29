@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Unit", menuName = "Scriptable Unit")]
-public class ScripteableUnit : ScriptableObject
+public class ScriptebleUnit : ScriptableObject
 {
     public Faction Faction;
     public BaseUnit UnitPrefab;
