@@ -15,8 +15,12 @@ public abstract class Tile : MonoBehaviour
     public void SetUnit(BaseUnit unit)
     {
         if (unit.OccupiedTile != null) unit.OccupiedTile.OccupieUnit = null;
-         
-        transform.position = transform.position;
+        
+        //Subtract 0.5 to get the unit centered in vertical
+        var transformPosition = transform.position;
+        transformPosition.y -= 0.5f;
+
+        unit.transform.position = transformPosition;
         OccupieUnit = unit;
         unit.OccupiedTile = this;
     }

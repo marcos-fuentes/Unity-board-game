@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 6714531371269302274}
+  _isWalkable: 1
+  OccupieUnit: {fileID: 0}
   _baseColor: {r: 0.26188928, g: 0.9716981, b: 0.0045834924, a: 1}
   _offsetColor: {r: 0.16141748, g: 1, b: 0, a: 1}
 --- !u!1001 &7714738958762524987

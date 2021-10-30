@@ -36,15 +36,15 @@ public class GridManager : MonoBehaviour
 
         _cam.transform.position = new Vector3((float) _width / 2 - 0.5f, (float) _height / 2 - 0.5f, -30);
 
-        GameManager.Instance.ChamgeState(GameState.SpawnHeroes);
+        GameManager.Instance.ChamgeState(GameState.SpawnAngels);
     }
 
     public Tile GetAngelsSpawnTile() {
-        return _tiles.Where(t => t.Key.x < _width / 2 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
+        return _tiles.Where(t => t.Key.y < _height / 3 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
     }
     
     public Tile GetOrcsSpawnTile() {
-        return _tiles.Where(t => t.Key.x > _width / 2 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
+        return _tiles.Where(t => t.Key.y > _height / 3 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
     }
 
 
