@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 95940096906117210}
   - component: {fileID: 114569996519555076}
   m_Layer: 0
-  m_Name: Fallen_Angels
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

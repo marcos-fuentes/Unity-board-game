@@ -1,13 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Managers.meta" afterDir="false" />
+    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Moved prefabs to correct package">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GridManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GridManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Units/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Units/Enemies/Enemy 1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Units/Enemies/Enemy 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Units/Heroes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Units/Heroes/Hero 1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Units/Heroes/Hero 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UnitManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UnitManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assasin/Fallen_Angels.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assasin/Fallen_Angels.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician/Fallen_Angels.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician/Fallen_Angels.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior/Fallen_Angels.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior/Fallen_Angels.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc/Orc.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc/Orc.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/BaseEnemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/BaseEnemy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/Enemy1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Enemies/Enemy1.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Heroes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Heroes/BaseHero.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Heroes/BaseHero.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Heroes/Hero1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Heroes/Hero1.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptebleUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptableUnit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptebleUnit.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptableUnit.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Body.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Body.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Face 01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Face 01.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Face 02.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Face 02.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Face 03.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Face 03.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Head.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Head.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Left Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Left Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Left Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Left Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Left Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Left Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Right Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Right Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Right Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Right Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Right Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Right Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/SlashFX.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/SlashFX.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Sword.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Sword.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Body.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Body.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Face 01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Face 01.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Face 02.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Face 02.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Face 03.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Face 03.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Head.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Head.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Left Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Left Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Left Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Left Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Left Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Left Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Right Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Right Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Right Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Right Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Right Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Right Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/SlashFX.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/SlashFX.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Sword.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Sword.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Body.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Body.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Face 01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Face 01.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Face 02.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Face 02.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Face 03.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Face 03.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Head.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Head.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Left Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Left Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Left Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Left Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Left Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Left Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Right Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Right Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Right Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Right Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Right Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Right Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/SlashFX.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/SlashFX.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Sword.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Sword.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Body.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Body.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Face 01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Face 01.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Face 02.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Face 02.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Face 03.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Face 03.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Head.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Head.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Left Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Left Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Left Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Left Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Left Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Left Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Right Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Right Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Right Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Right Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Right Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Right Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/SlashFX.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/SlashFX.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Sword.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Sword.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Body.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Body.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Face 01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Face 01.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Face 02.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Face 02.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Face 03.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Face 03.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Head.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Head.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Left Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Left Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Left Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Left Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Left Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Left Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Right Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Right Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Right Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Right Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Right Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Right Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/SlashFX.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/SlashFX.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Sword.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Sword.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Body.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Body.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Face 01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Face 01.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Face 02.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Face 02.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Face 03.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Face 03.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Head.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Head.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Left Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Left Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Left Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Left Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Left Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Left Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Right Arm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Right Arm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Right Hand.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Right Hand.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Right Leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Right Leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/SlashFX.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/SlashFX.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Sword.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Sword.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +120,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/Angels/BaseAngels.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/marcos.fuentes/Unity-board-game/Board game/Assets/Scripts/Managers/UnitManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/marcos.fuentes/Unity-board-game/Board game/Assets/Scripts/Managers/UnitManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/GrassTile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/ScripteableUnit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Units/ScriptableUnit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Sprites/Spriter2UnityDX/Editor/AnimationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zs1m7X8SFl6tK7Uef1ctI4swnB" />
@@ -35,6 +149,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -70,7 +185,7 @@
       <updated>1634922139256</updated>
       <workItem from="1634922146437" duration="3037000" />
       <workItem from="1635007003875" duration="6282000" />
-      <workItem from="1635527763130" duration="383000" />
+      <workItem from="1635527763130" duration="5155000" />
     </task>
     <task id="LOCAL-00001" summary="Created Scripts for board and tiles">
       <created>1634922289188</created>
@@ -93,7 +208,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635072662927</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Imported characters">
+      <created>1635528743323</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1635528743323</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Moved prefabs to correct package">
+      <created>1635529101295</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1635529101295</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,7 +236,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -119,6 +260,8 @@
     <MESSAGE value="Created Scripts for board and tiles" />
     <MESSAGE value="Added the creation of a simple board" />
     <MESSAGE value="Created 2 type of tiles and generating them in a random order" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created 2 type of tiles and generating them in a random order" />
+    <MESSAGE value="Imported characters" />
+    <MESSAGE value="Moved prefabs to correct package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved prefabs to correct package" />
   </component>
 </project>

@@ -577,6 +577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4236512666804958}
   - component: {fileID: 95565752440815076}
+  - component: {fileID: -7326211060764133635}
   - component: {fileID: 114754568219390936}
   m_Layer: 0
   m_Name: Orc
@@ -622,6 +623,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7326211060764133635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536174974547902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281a41fd6e6ad43f9bff16c68a3551e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OccupiedTile: {fileID: 0}
 --- !u!114 &114754568219390936
 MonoBehaviour:
   m_ObjectHideFlags: 0

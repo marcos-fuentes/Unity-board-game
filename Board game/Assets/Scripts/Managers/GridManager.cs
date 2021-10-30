@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class GridManager : MonoBehaviour
 {
@@ -41,8 +39,16 @@ public class GridManager : MonoBehaviour
         GameManager.Instance.ChamgeState(GameState.SpawnHeroes);
     }
 
+    public Tile GetAngelsSpawnTile() {
+        return _tiles.Where(t => t.Key.x < _width / 2 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
+    }
+    
+    public Tile GetOrcsSpawnTile() {
+        return _tiles.Where(t => t.Key.x > _width / 2 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
+    }
+
+
     public Tile GetTileAtPosition(Vector2 pos) {
         return _tiles.TryGetValue(pos, out var tile) ? tile : null;   
     }
 }
-

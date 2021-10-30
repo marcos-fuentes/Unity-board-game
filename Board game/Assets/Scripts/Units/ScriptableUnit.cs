@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Unit", menuName = "Scriptable Unit")]
-public class ScriptebleUnit : ScriptableObject
+public class ScriptableUnit : ScriptableObject
 {
     public Faction Faction;
     public BaseUnit UnitPrefab;
@@ -9,5 +9,5 @@ public class ScriptebleUnit : ScriptableObject
 
 public enum Faction
 {
-    Hero, Enemy
-}
+    Angels, Orcs
+} 
