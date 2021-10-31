@@ -1,51 +1,52 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class UnitManager : MonoBehaviour
 {
     public static UnitManager Instance;
 
-    private List<ScriptableUnit> _units;
+    private List<ScriptableUnit> _angelsUnits;
+    private List<ScriptableUnit> _orcsUnits;
+
+    [FormerlySerializedAs("SelectedAngel")] [FormerlySerializedAs("selectedAngels")] public BaseAngel selectedAngel;
 
     private void Awake()
     {
         Instance = this;
 
-        _units = Resources.LoadAll<ScriptableUnit>("Units").ToList();
+        _angelsUnits = Resources.LoadAll<ScriptableUnit>("Units/Angels").ToList();
+        _orcsUnits = Resources.LoadAll<ScriptableUnit>("Units/Orcs").ToList();
     }
 
     public void SpawnAngels()
     {
-        var angelCount = 1;
-
-        for (int i = 0; i < angelCount; i++)
-        {
-            var randomPrefab = GetRandomUnit<BaseAngels>(Faction.Angels);
-            var spawnedAngel = Instantiate(randomPrefab);
-            var randomSpawnTile = GridManager.Instance.GetAngelsSpawnTile();
-            
-            randomSpawnTile.SetUnit(spawnedAngel);
-        }
+        SpawnUnit(_angelsUnits);
         GameManager.Instance.ChamgeState(GameState.SpawnOrcs);
     }
+
     
+
     public void SpawnOrcs()
     {
-        var orcCount = 1;
-
-        for (int i = 0; i < orcCount; i++)
-        {
-            var randomPrefab = GetRandomUnit<BaseOrcs>(Faction.Orcs);
-            var spawnedOrc = Instantiate(randomPrefab);
-            var randomSpawnTile = GridManager.Instance.GetOrcsSpawnTile();
-            
-            randomSpawnTile.SetUnit(spawnedOrc);
-        }
+        SpawnUnit(_orcsUnits);
         GameManager.Instance.ChamgeState(GameState.AngelsTurn);
     }
+    
+    private void SpawnUnit(List<ScriptableUnit> units)
+    {
+        foreach (var unit in units)
+        {
+            var spawnedUnit = Instantiate(unit.UnitPrefab);
+            var randomSpawnTile = GridManager.Instance.GetSpawnTile(unit.Faction);
+            randomSpawnTile.SetUnit(spawnedUnit);
+        }
+    }
 
-    private T GetRandomUnit<T>(Faction faction) where T : BaseUnit {
-        return (T) _units.Where(u => u.Faction == faction).OrderBy(o => Random.value).First().UnitPrefab;
+    public void SetSelectedAngel(BaseAngel selectedAngel)
+    {
+        this.selectedAngel = selectedAngel;
+        MenuManager.Instance.ShowSelectedAngel(selectedAngel);
     }
 }

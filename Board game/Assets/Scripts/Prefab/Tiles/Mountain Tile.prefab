@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c529a0b9449cf42d5ae0bfc9b9187dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TileName: Mountain Tile
   _renderer: {fileID: 1593433399802151874}
+  _isWalkable: 0
+  _highlight: {fileID: 5621874032551812122}
+  OccupiedUnit: {fileID: 0}
 --- !u!1001 &2315852673064250107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20,6 +24,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -309884323101671169, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
+      propertyPath: _highlight
+      value: 
+      objectReference: {fileID: 5621874032551812122}
     - target: {fileID: 1782423435016595622, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
       propertyPath: m_Name
       value: Mountain Tile
@@ -30,15 +38,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3908716009637374265, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
       propertyPath: m_Color.b
-      value: 0.021493427
+      value: 0.009478444
       objectReference: {fileID: 0}
     - target: {fileID: 3908716009637374265, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
       propertyPath: m_Color.g
-      value: 0.24050649
+      value: 0.33683714
       objectReference: {fileID: 0}
     - target: {fileID: 3908716009637374265, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
       propertyPath: m_Color.r
-      value: 0.6509434
+      value: 0.6698113
       objectReference: {fileID: 0}
     - target: {fileID: 6153143440750970044, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
       propertyPath: m_RootOrder
@@ -94,5 +102,10 @@ GameObject:
 --- !u!212 &1593433399802151874 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3908716009637374265, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
+  m_PrefabInstance: {fileID: 2315852673064250107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5621874032551812122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7937426229364029153, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
   m_PrefabInstance: {fileID: 2315852673064250107}
   m_PrefabAsset: {fileID: 0}

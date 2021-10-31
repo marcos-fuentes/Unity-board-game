@@ -1,4 +1,4 @@
-public class Assasin : BaseAngels
+public class Assasin : BaseAngel
 {
     // Start is called before the first frame update
     void Start()

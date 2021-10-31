@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f60e908ad8c49cdaaf2997db70f760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TileName: Grass Tile
   _renderer: {fileID: 6714531371269302274}
   _isWalkable: 1
-  OccupieUnit: {fileID: 0}
+  _highlight: {fileID: 375809967299770330}
+  OccupiedUnit: {fileID: 0}
   _baseColor: {r: 0.26188928, g: 0.9716981, b: 0.0045834924, a: 1}
-  _offsetColor: {r: 0.16141748, g: 1, b: 0, a: 1}
+  _offsetColor: {r: 0.16141748, g: 1, b: 0, a: 0.9098039}
 --- !u!1001 &7714738958762524987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,5 +88,10 @@ GameObject:
 --- !u!212 &6714531371269302274 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3908716009637374265, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
+  m_PrefabInstance: {fileID: 7714738958762524987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &375809967299770330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7937426229364029153, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
   m_PrefabInstance: {fileID: 7714738958762524987}
   m_PrefabAsset: {fileID: 0}

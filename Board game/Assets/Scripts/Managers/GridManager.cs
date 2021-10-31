@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static Faction;
 
 public class GridManager : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class GridManager : MonoBehaviour
         _tiles = new Dictionary<Vector2, Tile>();
         for (int x = 0; x < _width; x++) {
             for (int y = 0; y < _height; y++) {
-                var randomTile = Random.Range(0, 6) == 3 ? _mountainTile : _grassTile;
+                var randomTile = Random.Range(0, 10) == 3 ? _mountainTile : _grassTile;
                 var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
                 spawnedTile.name = $"Tile {x} {y}";
 
@@ -39,15 +40,16 @@ public class GridManager : MonoBehaviour
         GameManager.Instance.ChamgeState(GameState.SpawnAngels);
     }
 
-    public Tile GetAngelsSpawnTile() {
-        return _tiles.Where(t => t.Key.y < _height / 3 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
+    public Tile GetSpawnTile(Faction faction) {
+        if (faction == Angels)
+        {
+            return _tiles.Where(t => t.Key.y < _height / 3 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
+        } else{
+            return _tiles.Where(t => t.Key.y > _height / 3 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
+
+        }
     }
     
-    public Tile GetOrcsSpawnTile() {
-        return _tiles.Where(t => t.Key.y > _height / 3 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
-    }
-
-
     public Tile GetTileAtPosition(Vector2 pos) {
         return _tiles.TryGetValue(pos, out var tile) ? tile : null;   
     }
