@@ -6,15 +6,17 @@ public class Tile : MonoBehaviour
 {
     public string TileName;
     [SerializeField] protected SpriteRenderer _renderer;
-    [SerializeField] private bool _isWalkable;
+    [SerializeField] internal bool _isWalkable;
     [SerializeField] private GameObject _highlight;
     [SerializeField] internal BaseUnit _tileUnit;
     
     public bool isWalkable => _isWalkable && _tileUnit == null;
+    public bool isAngelSpawnable;
+    public bool isOrcSpawnable;
 
     public virtual void Init(int x, int y)
     {
-
+    
     }
 
     public void SetUnitToTile(BaseUnit unit)
@@ -32,7 +34,7 @@ public class Tile : MonoBehaviour
 
     private void MoveUnit(BaseUnit unit)
     {
-        if (unit != null) {
+        if (unit != null && isWalkable) {
             SetUnitToTile(unit);
             GameManager.Instance.ChangeState(unit.Faction == Angels ? OrcsTurn : AngelsTurn);
             UnitManager.Instance.SetSelectedUnit(null);
@@ -52,7 +54,7 @@ public class Tile : MonoBehaviour
             } 
             else if (_tileUnit.Faction != factionTurn) {
                 Destroy(_tileUnit.gameObject);
-                UnitManager.Instance.SetSelectedUnit(null);
+                MoveUnit(unit);
             }
         } else {
             if (_tileUnit != null && _tileUnit.Faction == factionTurn) {
@@ -68,7 +70,7 @@ public class Tile : MonoBehaviour
      * Enables a highlight resource to each tile when mouse is over the tile
      */
     private void OnMouseEnter() {
-        _highlight.SetActive(true);
+        _highlight.SetActive(this is GrassTile);
     }
     /**
      * Disables a highlight resource to each tile when mouse leaves the tile

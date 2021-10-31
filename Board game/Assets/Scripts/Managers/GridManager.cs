@@ -29,7 +29,11 @@ public class GridManager : MonoBehaviour
                 var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
                 spawnedTile.name = $"Tile {x} {y}";
 
-                  
+                if (randomTile._isWalkable) {
+                    //Set tiles as spawnable when they are below the height (16 / 4 = 4 ) OR when they are the above height ( 16 - 16 / 4 = 12)
+                    spawnedTile.isAngelSpawnable = y < _height / 4;
+                    spawnedTile.isOrcSpawnable = y > _height - _height / 4;
+                }
                 spawnedTile.Init(x,y);
                 _tiles[new Vector2(x, y)] = spawnedTile;
             }
@@ -40,14 +44,11 @@ public class GridManager : MonoBehaviour
         GameManager.Instance.ChangeState(GameState.SpawnAngels);
     }
 
-    public Tile GetSpawnTile(Faction faction) {
-        if (faction == Angels)
-        {
-            return _tiles.Where(t => t.Key.y < _height / 3 && t.Value.isWalkable).OrderBy(t => Random.value).First().Value;
-        } else{
-            return _tiles.Where(t => t.Key.y > _height / 3 && t.Value.isWalkable).OrderBy(t => Random.value).First().Value;
-
-        }
+    public Tile GetSpawnTile(Faction faction)
+    {
+        return faction == Angels ? 
+            _tiles.Where(tile => tile.Value.isWalkable && tile.Value.isAngelSpawnable).OrderBy(t => Random.value).First().Value 
+            : _tiles.Where(tile => tile.Value.isWalkable && tile.Value.isOrcSpawnable).OrderBy(t => Random.value).First().Value;
     }
     
     public Tile GetTileAtPosition(Vector2 pos) {
