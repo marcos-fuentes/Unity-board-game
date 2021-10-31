@@ -1,31 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Fixes">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassBaseTile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/MontainBaseTile.cs" afterDir="false" />
+    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Refactoring and renaming">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/MenuManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/MenuManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UnitManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UnitManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assasin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assasin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassTile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassTile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassBaseTile.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/MontainTile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/MontainTile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/MontainBaseTile.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board and players.app/Contents/MacOS/Board game" beforeDir="false" afterPath="$PROJECT_DIR$/Board and players.app/Contents/MacOS/Board game" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/globalgamemanagers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/globalgamemanagers.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/level0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/resources.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Board and players.app/Contents/Resources/Data/sharedassets0.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board and players.app/Contents/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/Board and players.app/Contents/_CodeSignature/CodeResources" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +55,7 @@
     <setting file="mock:///Users/marcos.fuentes/Unity-board-game/Board game/Assets/Scripts/Tiles/Tile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@5.0.7/Editor/SkinningModule/CopyTool.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/NestedCanvasMaintainsCorrectSize.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/marcos.fuentes/Unity-board-game/Board game/Assets/Scripts/Prefab/Units/Angels/Assasin.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Editor/TMPro_FontPlugin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.4.8/Editor/Utilities/TimeReferenceUtility.cs" root0="SKIP_HIGHLIGHTING" />
@@ -174,7 +160,7 @@
       <updated>1634922139256</updated>
       <workItem from="1634922146437" duration="3037000" />
       <workItem from="1635007003875" duration="6282000" />
-      <workItem from="1635527763130" duration="36928000" />
+      <workItem from="1635527763130" duration="37722000" />
     </task>
     <task id="LOCAL-00001" summary="Created Scripts for board and tiles">
       <created>1634922289188</created>
@@ -267,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635700611355</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Refactoring and renaming">
+      <created>1635704551612</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1635704551612</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +308,7 @@
     <MESSAGE value="Updated scene removing unused text" />
     <MESSAGE value="Only top 4 rows or last 4 rows of tiles are spawnable" />
     <MESSAGE value="Fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
+    <MESSAGE value="Refactoring and renaming" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring and renaming" />
   </component>
 </project>
