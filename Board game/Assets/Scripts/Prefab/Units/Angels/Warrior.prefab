@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OccupiedTile: {fileID: 0}
-  Faction: 0
-  UnitName: Warrior
+  faction: 0
+  unitName: Warrior
 --- !u!114 &114569996519555076
 MonoBehaviour:
   m_ObjectHideFlags: 0

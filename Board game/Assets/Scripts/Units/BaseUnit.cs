@@ -1,8 +1,9 @@
+using Tiles;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class BaseUnit : MonoBehaviour
-{
-    public Tile OccupiedTile;
-    public Faction Faction;
-    public string UnitName;
+public class BaseUnit : MonoBehaviour {
+    [FormerlySerializedAs("OccupiedTile")] public BaseTile occupiedBaseTile;
+    public Faction faction;
+    public string unitName;
 }

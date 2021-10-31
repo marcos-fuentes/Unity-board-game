@@ -1,51 +1,58 @@
 using System;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace Managers
 {
-    public static GameManager Instance;
-    public GameState GameState;
-
-    private void Awake()
+    /**
+ * This class is the one who is responsible of the game state.
+ */
+    public class GameManager : MonoBehaviour
     {
-        Instance = this;
-    }
+        public static GameManager Instance;
+        public GameState gameState;
 
-    private void Start()
-    {
-        ChangeState(GameState.GenerateGrid);
-    }
+        private void Awake() => Instance = this;
+    
 
-    internal void ChangeState(GameState newState)
-    {
-        GameState = newState;
-        Debug.Log("GAME STATE: " + newState);
-        switch (newState)
+        private void Start() => ChangeState(GameState.GenerateGrid); 
+    
+        /**
+     * Changes the state of the game.
+     */
+        internal void ChangeState(GameState newState)
         {
-            case GameState.GenerateGrid:
-                GridManager.Instance.GenerateGrid();
-                break;
-            case GameState.SpawnAngels:
-                UnitManager.Instance.SpawnAngels(); 
-                break;
-            case GameState.SpawnOrcs:
-                UnitManager.Instance.SpawnOrcs();
-                break;
-            case GameState.AngelsTurn:
-                break;
-            case GameState.OrcsTurn:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+            gameState = newState;
+            Debug.Log("GAME STATE: " + newState);
+            switch (newState)
+            {
+                case GameState.GenerateGrid:
+                    GridManager.Instance.GenerateGrid();
+                    ChangeState(GameState.SpawnAngels);
+                    break;
+                case GameState.SpawnAngels:
+                    UnitManager.Instance.SpawnAngels();
+                    ChangeState(GameState.SpawnOrcs);
+                    break;
+                case GameState.SpawnOrcs:
+                    UnitManager.Instance.SpawnOrcs();
+                    ChangeState(GameState.AngelsTurn);
+                    break;
+                case GameState.AngelsTurn:
+                    break;
+                case GameState.OrcsTurn:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+            }
         }
     }
-}
 
-public enum GameState
-{
-    GenerateGrid,
-    SpawnAngels,
-    SpawnOrcs,
-    AngelsTurn,
-    OrcsTurn
+    public enum GameState
+    {
+        GenerateGrid,
+        SpawnAngels,
+        SpawnOrcs,
+        AngelsTurn,
+        OrcsTurn
+    }
 }

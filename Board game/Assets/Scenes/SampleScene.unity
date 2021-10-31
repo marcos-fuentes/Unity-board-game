@@ -391,8 +391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _width: 9
   _height: 16
-  _grassTile: {fileID: -2086265870679745796, guid: 16e2f8c5d414b4b138d44342d9375a6d, type: 3}
-  _mountainTile: {fileID: -7529844977528036153, guid: f22bd668355d843edb470fe85324835d, type: 3}
+  grassBaseTile: {fileID: -2086265870679745796, guid: 16e2f8c5d414b4b138d44342d9375a6d, type: 3}
+  mountainBaseTile: {fileID: -7529844977528036153, guid: f22bd668355d843edb470fe85324835d, type: 3}
   _cam: {fileID: 519420032}
 --- !u!4 &748521495
 Transform:
@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2bacbd960644761a4fa92be7fa2579c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameState: 0
+  gameState: 0
 --- !u!4 &1349795702
 Transform:
   m_ObjectHideFlags: 0
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 1350814994}
   - component: {fileID: 1350814995}
   m_Layer: 0
-  m_Name: Menu Manager
+  m_Name: UI Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

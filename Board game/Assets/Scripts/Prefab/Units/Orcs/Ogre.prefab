@@ -1244,8 +1244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OccupiedTile: {fileID: 0}
-  Faction: 1
-  UnitName: Ogre
+  faction: 1
+  unitName: Ogre
 --- !u!114 &114033494636675462
 MonoBehaviour:
   m_ObjectHideFlags: 0

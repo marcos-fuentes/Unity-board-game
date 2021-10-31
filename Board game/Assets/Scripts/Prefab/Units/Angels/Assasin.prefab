@@ -881,9 +881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58de8bccad344fdf8ec8461cb133770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupiedTile: {fileID: 0}
-  Faction: 0
-  UnitName: Assasin
+  occupiedBaseTile: {fileID: 0}
+  faction: 0
+  unitName: Assasin
 --- !u!114 &114767658495256168
 MonoBehaviour:
   m_ObjectHideFlags: 0

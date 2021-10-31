@@ -636,8 +636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OccupiedTile: {fileID: 0}
-  Faction: 1
-  UnitName: Orc
+  faction: 1
+  unitName: Orc
 --- !u!114 &114754568219390936
 MonoBehaviour:
   m_ObjectHideFlags: 0

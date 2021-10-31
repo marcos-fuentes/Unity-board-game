@@ -832,8 +832,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OccupiedTile: {fileID: 0}
-  Faction: 1
-  UnitName: Goblin
+  faction: 1
+  unitName: Goblin
 --- !u!1 &1631404634319562
 GameObject:
   m_ObjectHideFlags: 0
