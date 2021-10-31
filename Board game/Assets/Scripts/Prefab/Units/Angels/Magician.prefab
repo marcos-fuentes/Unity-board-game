@@ -855,7 +855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OccupiedTile: {fileID: 0}
   Faction: 0
-  UnitName: 
+  UnitName: Magician
 --- !u!114 &114582981220711258
 MonoBehaviour:
   m_ObjectHideFlags: 0

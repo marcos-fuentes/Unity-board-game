@@ -16,7 +16,7 @@ MonoBehaviour:
   _renderer: {fileID: 6714531371269302274}
   _isWalkable: 1
   _highlight: {fileID: 375809967299770330}
-  OccupiedUnit: {fileID: 0}
+  _tileUnit: {fileID: 0}
   _baseColor: {r: 0.26188928, g: 0.9716981, b: 0.0045834924, a: 1}
   _offsetColor: {r: 0.16141748, g: 1, b: 0, a: 0.9098039}
 --- !u!1001 &7714738958762524987
@@ -78,7 +78,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -309884323101671169, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
 --- !u!1 &8335092667773266333 stripped
 GameObject:

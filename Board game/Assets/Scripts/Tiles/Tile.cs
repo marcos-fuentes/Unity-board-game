@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.Serialization;
+using static Faction;
+using static GameState;
 
 public class Tile : MonoBehaviour
 {
@@ -7,57 +8,95 @@ public class Tile : MonoBehaviour
     [SerializeField] protected SpriteRenderer _renderer;
     [SerializeField] private bool _isWalkable;
     [SerializeField] private GameObject _highlight;
+    [SerializeField] internal BaseUnit _tileUnit;
     
+    public bool isWalkable => _isWalkable && _tileUnit == null;
 
-    [FormerlySerializedAs("OccupieUnit")] public BaseUnit OccupiedUnit;
-    public bool Walkable => _isWalkable && OccupiedUnit == null; 
+    public virtual void Init(int x, int y)
+    {
 
-    public virtual void Init(int x, int y) {
-        
     }
 
-    public void SetUnit(BaseUnit unit)
+    public void SetUnitToTile(BaseUnit unit)
     {
-        if (unit.OccupiedTile != null) unit.OccupiedTile.OccupiedUnit = null;
-        
+        if (unit.OccupiedTile != null) unit.OccupiedTile._tileUnit = null;
+
         //Subtract 0.5 to get the unit centered in vertical
         var transformPosition = transform.position;
         transformPosition.y -= 0.5f;
 
         unit.transform.position = transformPosition;
-        OccupiedUnit = unit;
+        _tileUnit = unit;
         unit.OccupiedTile = this;
     }
-    
-    //EVENTS
 
-    private void OnMouseEnter()
+    private void MoveUnit(BaseUnit unit)
     {
-        _highlight.SetActive(true);
-        MenuManager.Instance.ShowTileInfo(this);
+        if (unit != null) {
+            SetUnitToTile(unit);
+            GameManager.Instance.ChangeState(unit.Faction == Angels ? OrcsTurn : AngelsTurn);
+            UnitManager.Instance.SetSelectedUnit(null);
+        }
     }
 
-    private void OnMouseExit()
+    /**
+     * Manages the turn of the unit
+     * unit: pass the unit that you want to manage
+     * factionTurn: the faction of the turn you are using
+     */
+    private void ManageUnitTurn(BaseUnit unit, Faction factionTurn)
     {
-        _highlight.SetActive(false);
-        MenuManager.Instance.ShowTileInfo(null);
-    }
-
-    private void OnMouseDown()
-    {
-        if (GameManager.Instance.GameState != GameState.AngelsTurn) return;
-
-        if (OccupiedUnit != null) {
-            if (OccupiedUnit.Faction == Faction.Angels) UnitManager.Instance.SetSelectedAngel((BaseAngel) OccupiedUnit);
-             else if (UnitManager.Instance.selectedAngel != null) {
-                var orc = (BaseOrcs) OccupiedUnit;
-                Destroy(orc.gameObject);
-                UnitManager.Instance.SetSelectedAngel(null);
+        if (unit != null && unit.Faction == factionTurn) {
+            if (_tileUnit == null) {
+                MoveUnit(UnitManager.Instance.selectedUnit);
+            } 
+            else if (_tileUnit.Faction != factionTurn) {
+                Destroy(_tileUnit.gameObject);
+                UnitManager.Instance.SetSelectedUnit(null);
+            }
+        } else {
+            if (_tileUnit != null && _tileUnit.Faction == factionTurn) {
+                UnitManager.Instance.SetSelectedUnit(_tileUnit);
             }
         }
-        else if (UnitManager.Instance.selectedAngel != null) {
-            SetUnit(UnitManager.Instance.selectedAngel);
-            UnitManager.Instance.SetSelectedAngel(null);
+    }
+
+
+    //EVENTS
+    
+    /**
+     * Enables a highlight resource to each tile when mouse is over the tile
+     */
+    private void OnMouseEnter() {
+        _highlight.SetActive(true);
+    }
+    /**
+     * Disables a highlight resource to each tile when mouse leaves the tile
+     */
+    private void OnMouseExit() {
+        _highlight.SetActive(false);
+    }
+    
+    /**
+     * When a Tile is clicked Units turns are managed to move or destroy another unit.
+     */
+    private void OnMouseDown()
+    {
+        Debug.Log("Mouse clicked: " + TileName);
+        switch (GameManager.Instance.GameState)
+        {
+            case AngelsTurn:
+                ManageUnitTurn(UnitManager.Instance.selectedUnit, Angels);
+                break;
+            case OrcsTurn:
+                ManageUnitTurn(UnitManager.Instance.selectedUnit, Orcs);
+                break;
+            case GenerateGrid:
+                break;
+            case SpawnAngels:
+                break;
+            case SpawnOrcs:
+                break;
         }
     }
 }

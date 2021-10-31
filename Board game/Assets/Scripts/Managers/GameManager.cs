@@ -13,12 +13,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ChamgeState(GameState.GenerateGrid);
+        ChangeState(GameState.GenerateGrid);
     }
 
-    internal void ChamgeState(GameState newState)
+    internal void ChangeState(GameState newState)
     {
         GameState = newState;
+        Debug.Log("GAME STATE: " + newState);
         switch (newState)
         {
             case GameState.GenerateGrid:

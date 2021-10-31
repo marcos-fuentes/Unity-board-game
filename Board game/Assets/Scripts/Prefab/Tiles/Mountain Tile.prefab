@@ -16,7 +16,7 @@ MonoBehaviour:
   _renderer: {fileID: 1593433399802151874}
   _isWalkable: 0
   _highlight: {fileID: 5621874032551812122}
-  OccupiedUnit: {fileID: 0}
+  _tileUnit: {fileID: 0}
 --- !u!1001 &2315852673064250107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92,7 +92,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -309884323101671169, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
 --- !u!1 &4080260265317024349 stripped
 GameObject:

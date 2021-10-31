@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,9 +10,8 @@ public class UnitManager : MonoBehaviour
 
     private List<ScriptableUnit> _angelsUnits;
     private List<ScriptableUnit> _orcsUnits;
-
-    [FormerlySerializedAs("SelectedAngel")] [FormerlySerializedAs("selectedAngels")] public BaseAngel selectedAngel;
-
+    
+    [FormerlySerializedAs("selectedAngel")] [FormerlySerializedAs("SelectedUnit")] public BaseUnit selectedUnit;
     private void Awake()
     {
         Instance = this;
@@ -23,7 +23,7 @@ public class UnitManager : MonoBehaviour
     public void SpawnAngels()
     {
         SpawnUnit(_angelsUnits);
-        GameManager.Instance.ChamgeState(GameState.SpawnOrcs);
+        GameManager.Instance.ChangeState(GameState.SpawnOrcs);
     }
 
     
@@ -31,22 +31,25 @@ public class UnitManager : MonoBehaviour
     public void SpawnOrcs()
     {
         SpawnUnit(_orcsUnits);
-        GameManager.Instance.ChamgeState(GameState.AngelsTurn);
+        GameManager.Instance.ChangeState(GameState.AngelsTurn);
     }
     
-    private void SpawnUnit(List<ScriptableUnit> units)
-    {
-        foreach (var unit in units)
-        {
+    private void SpawnUnit(List<ScriptableUnit> units) {
+        foreach (var unit in units) {
             var spawnedUnit = Instantiate(unit.UnitPrefab);
             var randomSpawnTile = GridManager.Instance.GetSpawnTile(unit.Faction);
-            randomSpawnTile.SetUnit(spawnedUnit);
+            randomSpawnTile.SetUnitToTile(spawnedUnit);
         }
     }
 
-    public void SetSelectedAngel(BaseAngel selectedAngel)
-    {
-        this.selectedAngel = selectedAngel;
-        MenuManager.Instance.ShowSelectedAngel(selectedAngel);
+    public void SetSelectedUnit(BaseUnit unit) {
+        if (unit == null) {
+            selectedUnit = null;
+            MenuManager.Instance.ShowSelectedUnit(null);
+        } else {
+            selectedUnit = unit;
+            MenuManager.Instance.ShowSelectedUnit(selectedUnit);
+            Debug.Log("UNIT SELECTED: " + selectedUnit.UnitName);
+        } 
     }
 }
