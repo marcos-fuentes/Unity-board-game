@@ -8,10 +8,10 @@ namespace Tiles
     public class GrassBaseTile : BaseTile
     {
         [SerializeField] private Color _baseColor, _offsetColor;
-        public override void Init(int x, int y) {
+        public override void Init(int horizontalX, int horizontalY) {
             //To set one of each tiles with one color to make it more visual
             //TOOD: Change this for tiles with sprites
-            var isOffset = (x + y) % 2 == 1;
+            var isOffset = (horizontalX + horizontalY) % 2 == 1;
             _renderer.color = isOffset ? _offsetColor : _baseColor;
         }
     }

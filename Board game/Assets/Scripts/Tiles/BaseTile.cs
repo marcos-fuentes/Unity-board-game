@@ -1,3 +1,4 @@
+using System;
 using Managers;
 using UnityEngine;
 using static Faction;
@@ -12,14 +13,21 @@ namespace Tiles
         public string TileName;
         [SerializeField] protected SpriteRenderer _renderer;
         [SerializeField] internal bool _isWalkable;
-        [SerializeField] private GameObject _highlight;
+        [SerializeField] internal GameObject _highlight;
         [SerializeField] internal BaseUnit _tileUnit;
-    
+        
         public bool isWalkable => _isWalkable && _tileUnit == null;
         public bool isAngelSpawnable;
         public bool isOrcSpawnable;
+        internal int HorizontalX;
+        internal int VerticalY;
 
-        public virtual void Init(int x, int y){}
+        public virtual void Init(int x, int y) { }
+
+        public void setHighLightedTile(bool highlight) {
+            _highlight.SetActive(highlight);
+        }
+        
         
         /**
         * Assign a Unit to a Tile
@@ -46,6 +54,7 @@ namespace Tiles
                 SetUnitToTile(unit);
                 GameManager.Instance.ChangeState(unit.faction == Angels ? OrcsTurn : AngelsTurn);
                 UnitManager.Instance.SetSelectedUnit(null);
+                GridManager.Instance.HideMoves();
             }
         }
 
@@ -67,29 +76,29 @@ namespace Tiles
             } else {
                 if (_tileUnit != null && _tileUnit.faction == factionTurn) {
                     UnitManager.Instance.SetSelectedUnit(_tileUnit);
+                    if (UnitManager.Instance.selectedUnit != null) GridManager.Instance.ShowPossibleMoves(_tileUnit, this);
                 }
             }
         }
 
-
         //EVENTS
     
         /**
-     * Enables a highlight resource to each tile when mouse is over the tile
-     */
+ * Enables a highlight resource to each tile when mouse is over the tile
+ */
         private void OnMouseEnter() {
-            _highlight.SetActive(this is GrassBaseTile);
+            setHighLightedTile(true);
         }
         /**
-     * Disables a highlight resource to each tile when mouse leaves the tile
-     */
+ * Disables a highlight resource to each tile when mouse leaves the tile
+ */
         private void OnMouseExit() {
-            _highlight.SetActive(false);
+            setHighLightedTile(false);
         }
     
         /**
-     * When a Tile is clicked Units turns are managed to move or destroy another unit.
-     */
+ * When a Tile is clicked Units turns are managed to move or destroy another unit.
+ */
         private void OnMouseDown()
         {
             Debug.Log("Mouse clicked: " + TileName);
