@@ -635,9 +635,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281a41fd6e6ad43f9bff16c68a3551e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupiedTile: {fileID: 0}
+  occupiedBaseTile: {fileID: 0}
   faction: 1
   unitName: Orc
+  movementArea: 3
 --- !u!114 &114754568219390936
 MonoBehaviour:
   m_ObjectHideFlags: 0

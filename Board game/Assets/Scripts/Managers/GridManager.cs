@@ -56,8 +56,8 @@ namespace Managers
         private void AssignTileSpawnable(BaseTile spawnedBaseTile, int y)
         {
             //Set tiles as spawnable when they are below the height (16 / 4 = 4 ) OR when they are the above height ( 16 - 16 / 4 = 12)
-            spawnedBaseTile.isAngelSpawnable = (y < _height / 4) && spawnedBaseTile._isWalkable;
-            spawnedBaseTile.isOrcSpawnable = y > _height - _height / 4 && spawnedBaseTile._isWalkable;
+            spawnedBaseTile.isAngelSpawnable = y < _height / 4 && spawnedBaseTile.IsWalkable();
+            spawnedBaseTile.isOrcSpawnable = y > _height - _height / 4 && spawnedBaseTile.IsWalkable();
         }
 
         /**
@@ -66,9 +66,9 @@ namespace Managers
         public BaseTile GetSpawnTile(Faction faction)
         {
             return faction == Angels
-                ? _tiles.Where(tile => tile.Value.isWalkable && tile.Value.isAngelSpawnable).OrderBy(t => Random.value)
+                ? _tiles.Where(tile => tile.Value.IsWalkable() && tile.Value.isAngelSpawnable).OrderBy(t => Random.value)
                     .First().Value
-                : _tiles.Where(tile => tile.Value.isWalkable && tile.Value.isOrcSpawnable).OrderBy(t => Random.value)
+                : _tiles.Where(tile => tile.Value.IsWalkable() && tile.Value.isOrcSpawnable).OrderBy(t => Random.value)
                     .First().Value;
         }
 
@@ -94,36 +94,32 @@ namespace Managers
                 var leftTile = _tiles[new Vector2(movementLeft, baseTile.VerticalY)];
                 var rightTile = _tiles[new Vector2(movementRight, baseTile.VerticalY)];
                 var upperTile = _tiles[new Vector2(baseTile.HorizontalX, movementUp)];
-                var downTile = _tiles[new Vector2(baseTile.HorizontalX, movementDown)];
+                var bottomTile = _tiles[new Vector2(baseTile.HorizontalX, movementDown)];
 
                 //Check if there's any tile that shouldn't be walkable so in that case there won't be more movement to that direction
-                if (leftTile.isWalkable && !leftMovementBlocked) {
-                    leftTile.setHighLightedTile(true);
-                    tilesHighlighted.Add(leftTile);
-                } else if (!leftTile.isWalkable) leftMovementBlocked = true; 
-                
-                if (rightTile.isWalkable && !rightMovementBlocked) {
-                    rightTile.setHighLightedTile(true);
-                    tilesHighlighted.Add(rightTile);
-                } else if (!rightTile.isWalkable) rightMovementBlocked = true;  
-                
-                if (upperTile.isWalkable && !upMovementBlocked) {
-                    upperTile.setHighLightedTile(true);
-                    tilesHighlighted.Add(upperTile);
-                } else if (!upperTile.isWalkable) upMovementBlocked = true; 
-                
-                if (downTile.isWalkable && !downMovementBlocked) {
-                    downTile.setHighLightedTile(true);
-                    tilesHighlighted.Add(downTile);
-                } else if (!downTile.isWalkable) downMovementBlocked = true; 
+                if (!leftMovementBlocked) leftMovementBlocked = !CheckIfTileIsWalkable(leftTile);
+                if (!rightMovementBlocked) rightMovementBlocked = !CheckIfTileIsWalkable(rightTile);
+                if (!upMovementBlocked) upMovementBlocked = !CheckIfTileIsWalkable(upperTile);
+                if (!downMovementBlocked) downMovementBlocked = !CheckIfTileIsWalkable(bottomTile);
             }
         }
-        
+
+        private bool CheckIfTileIsWalkable(BaseTile tile)
+        {
+            if (tile.IsWalkable())
+            {
+                tile.SetTileAsPossibleMovement(true);
+                tilesHighlighted.Add(tile);
+                return true;
+            }
+            return false;
+        }
+
         internal void HideMoves()
         {
             foreach (var baseTile in tilesHighlighted)
             {
-                baseTile.setHighLightedTile(false);
+                baseTile.SetTileAsPossibleMovement(false);
             }
         }
     }

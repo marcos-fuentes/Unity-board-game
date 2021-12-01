@@ -831,9 +831,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa97c0aea2034a76a4b0c415afbcb33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupiedTile: {fileID: 0}
+  occupiedBaseTile: {fileID: 0}
   faction: 1
   unitName: Goblin
+  movementArea: 3
 --- !u!1 &1631404634319562
 GameObject:
   m_ObjectHideFlags: 0

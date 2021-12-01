@@ -1243,9 +1243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3b92b2a8704ea0819c10f8064b0460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupiedTile: {fileID: 0}
+  occupiedBaseTile: {fileID: 0}
   faction: 1
   unitName: Ogre
+  movementArea: 3
 --- !u!114 &114033494636675462
 MonoBehaviour:
   m_ObjectHideFlags: 0

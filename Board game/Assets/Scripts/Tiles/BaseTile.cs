@@ -1,4 +1,3 @@
-using System;
 using Managers;
 using UnityEngine;
 using static Faction;
@@ -12,20 +11,46 @@ namespace Tiles
     {
         public string TileName;
         [SerializeField] protected SpriteRenderer _renderer;
-        [SerializeField] internal bool _isWalkable;
         [SerializeField] internal GameObject _highlight;
+        [SerializeField] internal GameObject _possibleMove;
         [SerializeField] internal BaseUnit _tileUnit;
         
-        public bool isWalkable => _isWalkable && _tileUnit == null;
+        
+
         public bool isAngelSpawnable;
         public bool isOrcSpawnable;
         internal int HorizontalX;
         internal int VerticalY;
 
+        private Color _notWalkableHighlight = new Color(255, 0, 0, 0.5f);
+        private Color _walkableHighlight = new Color(255, 255, 255, 0.5f);
+
         public virtual void Init(int x, int y) { }
 
-        public void setHighLightedTile(bool highlight) {
+        public bool IsWalkable()
+        {
+            return this is IWalkable iWalkable && iWalkable.IsWalkable();
+        }
+
+        private bool IsPossibleMove()  {
+            return IsWalkable() && _possibleMove.activeSelf;
+        }
+
+        private void SetHighLightedTile(bool highlight)
+        {
+            //If it's not walkable is showing a red highlight instead of a white one
+            _highlight.GetComponent<SpriteRenderer>().color =
+                //Is RED when it's not walkable
+                // 1 - is not possible move
+                // 2 - Unit is selected to move
+                UnitManager.Instance.selectedUnit != null && !IsPossibleMove() && UnitManager.Instance.selectedUnit != _tileUnit
+                    ? _notWalkableHighlight : _walkableHighlight;
+            
             _highlight.SetActive(highlight);
+        }
+        
+        public void SetTileAsPossibleMovement(bool possibleMovement) {
+            _possibleMove.SetActive(possibleMovement);
         }
         
         
@@ -48,14 +73,18 @@ namespace Tiles
         /**
          * Move Unit to another Tile
          */
-        private void MoveUnit(BaseUnit unit)
+        private void MoveUnit(BaseUnit unitToMove)
         {
-            if (unit != null) {
-                SetUnitToTile(unit);
-                GameManager.Instance.ChangeState(unit.faction == Angels ? OrcsTurn : AngelsTurn);
-                UnitManager.Instance.SetSelectedUnit(null);
-                GridManager.Instance.HideMoves();
-            }
+            if (unitToMove == null || !IsPossibleMove()) return;
+            SetUnitToTile(unitToMove);
+            GameManager.Instance.ChangeState(unitToMove.faction == Angels ? OrcsTurn : AngelsTurn);
+            ClearMove();
+        }
+        
+        private static void ClearMove()
+        {
+            UnitManager.Instance.SetSelectedUnit(null);
+            GridManager.Instance.HideMoves();
         }
 
         /**
@@ -65,20 +94,31 @@ namespace Tiles
      */
         private void ManageUnitTurn(BaseUnit unit, Faction factionTurn)
         {
-            if (unit != null && unit.faction == factionTurn) {
-                if (_tileUnit == null) {
-                    MoveUnit(UnitManager.Instance.selectedUnit);
-                } 
-                else if (_tileUnit.faction != factionTurn) {
-                    Destroy(_tileUnit.gameObject);
-                    MoveUnit(unit);
+            if (unit != null) {
+                if (IsPossibleMove())
+                {
+                    //STEP MOVE UNIT TO TILE
+                    if (_tileUnit == null) MoveUnit(unit);
+
+                    //STEP ATTACK
+                    else Attack(unit);
                 }
+                //CLEAR MOVE
+                else ClearMove();
+
             } else {
-                if (_tileUnit != null && _tileUnit.faction == factionTurn) {
-                    UnitManager.Instance.SetSelectedUnit(_tileUnit);
-                    if (UnitManager.Instance.selectedUnit != null) GridManager.Instance.ShowPossibleMoves(_tileUnit, this);
-                }
+                //SELECT UNIT TO MOVE
+                if (_tileUnit == null || _tileUnit.faction != factionTurn) return;
+                UnitManager.Instance.SetSelectedUnit(_tileUnit);
+                if (UnitManager.Instance.selectedUnit != null) GridManager.Instance.ShowPossibleMoves(_tileUnit, this);
             }
+        }
+
+        private void Attack(BaseUnit unit)
+        {
+            Destroy(_tileUnit.gameObject);
+            _tileUnit = null;
+            MoveUnit(unit);
         }
 
         //EVENTS
@@ -87,13 +127,13 @@ namespace Tiles
  * Enables a highlight resource to each tile when mouse is over the tile
  */
         private void OnMouseEnter() {
-            setHighLightedTile(true);
+            SetHighLightedTile(true);
         }
         /**
  * Disables a highlight resource to each tile when mouse leaves the tile
  */
         private void OnMouseExit() {
-            setHighLightedTile(false);
+            SetHighLightedTile(false);
         }
     
         /**

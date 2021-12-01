@@ -150,9 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a671ce2eb61247a89ec285c80d91dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupiedTile: {fileID: 0}
+  occupiedBaseTile: {fileID: 0}
   faction: 0
   unitName: Warrior
+  movementArea: 3
 --- !u!114 &114569996519555076
 MonoBehaviour:
   m_ObjectHideFlags: 0

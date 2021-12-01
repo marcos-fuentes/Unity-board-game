@@ -853,9 +853,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15649f8172c9643e0b76c3caffeb9427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupiedTile: {fileID: 0}
+  occupiedBaseTile: {fileID: 0}
   faction: 0
   unitName: Magician
+  movementArea: 3
 --- !u!114 &114582981220711258
 MonoBehaviour:
   m_ObjectHideFlags: 0

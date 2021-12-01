@@ -884,6 +884,7 @@ MonoBehaviour:
   occupiedBaseTile: {fileID: 0}
   faction: 0
   unitName: Assasin
+  movementArea: 3
 --- !u!114 &114767658495256168
 MonoBehaviour:
   m_ObjectHideFlags: 0
