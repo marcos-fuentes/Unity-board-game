@@ -16,15 +16,15 @@ namespace Units {
         private void Start() {
             var healthSystem = new HealthSystem(3);
             healthBar.Setup(healthSystem);
-            Debug.Log($"Unit name: {unitName} | Health: {healthBar.healthSystem.GetHealthPercent()}");
+            Debug.Log($"Unit name: {unitName} | Health: {healthBar.HealthSystem.GetHealthPercent()}");
             TestHealth();
         }
 
         private async Task TestHealth() {
-            while (healthBar.healthSystem.GetHealth() > 0) {
-                Debug.Log($"Health: {healthBar.healthSystem.GetHealthPercent()}");
+            while (healthBar.HealthSystem.GetHealth() > 0) {
+                Debug.Log($"Health: {healthBar.HealthSystem.GetHealthPercent()}");
                 await Task.Delay(TimeSpan.FromSeconds(3));
-                healthBar.healthSystem.Damage(1);
+                healthBar.HealthSystem.Damage(1);
             }
         }
     }

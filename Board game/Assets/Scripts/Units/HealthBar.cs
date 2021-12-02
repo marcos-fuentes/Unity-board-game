@@ -2,16 +2,18 @@ using UnityEngine;
 
 namespace Units {
     public class HealthBar : MonoBehaviour {
-        internal HealthSystem healthSystem;
+        internal HealthSystem HealthSystem;
 
         public void Setup(HealthSystem healthSystem) {
-            this.healthSystem = healthSystem;
+            this.HealthSystem = healthSystem;
+
+            healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
         }
-        
-        private void Update() {
-            if (healthSystem != null) {
-                transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercent(), 1);
-            }
+
+        private void HealthSystem_OnHealthChanged(object sender, System.EventArgs e) {
+            if (HealthSystem != null) {
+                transform.Find("Bar").localScale = new Vector3(HealthSystem.GetHealthPercent(), 1);
+            }   
         }
     }
 }

@@ -1,35 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Units/HealthBar.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Units/HealthBar.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Units/HealthSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Units/HealthSystem.cs.meta" afterDir="false" />
+    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Created HealthBar for each hero and refactored a bit the code">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UnitManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UnitManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assasin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assasin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassBaseTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassBaseTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/IWalkable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/IWalkable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Angels/Assasin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Angels/Assasin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Angels/BaseAngel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Angels/BaseAngel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Angels/Magician.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Angels/Magician.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Angels/Warrior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Angels/Warrior.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Orcs/BaseOrcs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Orcs/BaseOrcs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Orcs/Goblin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Orcs/Goblin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Orcs/Ogre.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Orcs/Ogre.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Orcs/Orc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Orcs/Orc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptableUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptableUnit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/HealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/HealthBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/HealthSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/HealthSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +51,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.4.8/Editor/Utilities/TimeReferenceUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.1.0/Unity.Mathematics/float2x2.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.4.8/Editor/TimelineSelection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/marcos.fuentes/Unity-board-game/Board game/Assets/Scripts/Units/Angels/Assasin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.9.0/Tests/Editor/Collaborate/Presenters/TestMainView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@5.0.7/Editor/SkinningModule/SkinningCache/BoneCacheExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/877f5c261f674ce1a8e59a9abcc42ec013b800/e0/55cd06d7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
@@ -183,7 +161,7 @@
       <workItem from="1638126548302" duration="2194000" />
       <workItem from="1638211917294" duration="5208000" />
       <workItem from="1638383464688" duration="1108000" />
-      <workItem from="1638429637808" duration="4879000" />
+      <workItem from="1638429637808" duration="5450000" />
     </task>
     <task id="LOCAL-00001" summary="Created Scripts for board and tiles">
       <created>1634922289188</created>
@@ -304,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638383498585</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Created HealthBar for each hero and refactored a bit the code">
+      <created>1638436524052</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1638436524052</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +341,8 @@
     <MESSAGE value="Created version of the actual game" />
     <MESSAGE value="Added functionality to show possible movement area to each hero" />
     <MESSAGE value="Improved the way is moving and showing the possible moves" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved the way is moving and showing the possible moves" />
+    <MESSAGE value="Created HealthBar for each hero and refactored a bit the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created HealthBar for each hero and refactored a bit the code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
