@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Units;
 using UnityEngine;
 
 namespace Managers
@@ -13,9 +15,10 @@ namespace Managers
 
         private List<ScriptableUnit> _angelsUnits;
         private List<ScriptableUnit> _orcsUnits;
-    
+        
         public BaseUnit selectedUnit;
-        private void Awake() {
+        
+        private async void Awake() {
             Instance = this;
             
             //Get the all the units from the resources

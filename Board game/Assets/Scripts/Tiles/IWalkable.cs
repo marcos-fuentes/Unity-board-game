@@ -1,3 +1,5 @@
+using Units;
+
 namespace Tiles
 {
     public interface IWalkable
