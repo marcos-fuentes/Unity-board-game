@@ -1248,10 +1248,8 @@ MonoBehaviour:
   faction: 1
   unitName: Ogre
   movementArea: 3
+  attackArea: 3
   healthBar: {fileID: 9162916587357569461}
-  attackClip: {fileID: 0}
-  dyingClip: {fileID: 0}
-  hurtClip: {fileID: 0}
 --- !u!114 &114033494636675462
 MonoBehaviour:
   m_ObjectHideFlags: 0

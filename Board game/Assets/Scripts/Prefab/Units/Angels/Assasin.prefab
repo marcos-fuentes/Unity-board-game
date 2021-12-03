@@ -1457,7 +1457,8 @@ MonoBehaviour:
   occupiedBaseTile: {fileID: 0}
   faction: 0
   unitName: 
-  movementArea: 3
+  movementArea: 5
+  attackArea: 1
   healthBar: {fileID: 1867284904}
 --- !u!114 &114767658495256168
 MonoBehaviour:

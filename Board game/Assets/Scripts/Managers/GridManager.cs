@@ -109,18 +109,19 @@ namespace Managers
 
         private bool CheckIfTileIsWalkable(BaseTile tile, BaseUnit baseUnit, bool isInsideAttackArea) {
             //Check if the tile to move it's walkable
-            if (tile.IsWalkable()) {
-                //If there's a unit from the same team it's also a blocker
-                if (tile.IsOccupiedByATeamUnit(baseUnit)) return false;
-                
-                if (isInsideAttackArea) tile.SetTileAsPossibleMovementAttack();
-                else tile.SetTileAsPossibleMovement();
-                
+            //If there's a unit from the same team it's also a blocker
+            if (!tile.IsWalkable() || tile.IsOccupiedByATeamUnit(baseUnit)) return false;
+
+            if (isInsideAttackArea) {
+                tile.SetTileAsPossibleMovementAttack();
                 tilesHighlighted.Add(tile);
-                //If there's an enemy in the movement area, it's also a possible move but it's a block (no more moves in that direction)
-                return !tile.HasAnEnemy(baseUnit);
             }
-            return false;
+            else if (!tile.HasAnEnemy(baseUnit)) {
+                tile.SetTileAsPossibleMovement();
+                tilesHighlighted.Add(tile);
+            }
+            //If there's an enemy in the movement area, it's also a possible move but it's a block (no more moves in that direction)
+            return !tile.HasAnEnemy(baseUnit);
         }
 
         internal void HideMoves()

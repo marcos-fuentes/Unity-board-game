@@ -15,6 +15,7 @@ MonoBehaviour:
   TileName: Grass Tile
   _renderer: {fileID: 6714531371269302274}
   _highlight: {fileID: 375809967299770330}
+  _notPossibleMoveHighLight: {fileID: 2445930451311068916}
   _possibleMove: {fileID: 7912733952786839589}
   _possibleMovementHighlight: {fileID: 8650967897100465541}
   _tileUnit: {fileID: 0}
@@ -113,6 +114,11 @@ GameObject:
 --- !u!212 &6714531371269302274 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3908716009637374265, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
+  m_PrefabInstance: {fileID: 7714738958762524987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2445930451311068916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5395860993456555983, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
   m_PrefabInstance: {fileID: 7714738958762524987}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &375809967299770330 stripped

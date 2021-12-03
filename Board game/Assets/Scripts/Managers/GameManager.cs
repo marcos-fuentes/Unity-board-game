@@ -10,8 +10,17 @@ namespace Managers
     {
         public static GameManager Instance;
         public GameState gameState;
+        private int maxAttackPerTurn = 1;
+        private int maxMovesPerTurn = 2;
+
+        private int _currentAttacks;
+        private int _currentMoves;
 
         private void Awake() => Instance = this;
+
+        public bool IsTurnOver() => !AreMovementsLeft() || !AreAttacksLeft();
+        public bool AreMovementsLeft() => _currentMoves > 0;
+        public bool AreAttacksLeft() => _currentAttacks > 0;
     
 
         private void Start() => ChangeState(GameState.GenerateGrid); 
@@ -38,15 +47,32 @@ namespace Managers
                     ChangeState(GameState.AngelsTurn);
                     break;
                 case GameState.AngelsTurn:
+                    ResetTurnValues();
                     break;
                 case GameState.OrcsTurn:
+                    ResetTurnValues();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
             }
         }
-    }
+         
+        private void ResetTurnValues(){
+            _currentAttacks = maxAttackPerTurn;
+            _currentMoves = maxMovesPerTurn;
+        }
 
+        public void SubAttackNumber() {
+            _currentAttacks--;
+            if (_currentAttacks < 0) _currentAttacks = 0;
+        }
+        
+        public void SubMoveNumber() {
+            _currentMoves--;
+            if (_currentMoves < 0) _currentMoves = 0;
+        }
+    }
+   
     public enum GameState
     {
         GenerateGrid,

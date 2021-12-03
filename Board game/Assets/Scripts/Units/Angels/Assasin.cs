@@ -1,3 +1,4 @@
 namespace Units.Angels {
-    public class Assasin : BaseAngel { }
+    public class Assasin : BaseAngel {
+    }
 }

@@ -155,10 +155,9 @@ MonoBehaviour:
   faction: 0
   unitName: Warrior
   movementArea: 3
+  attackArea: 1
   healthBar: {fileID: 7687154979313550439}
-  attackClip: {fileID: 0}
-  dyingClip: {fileID: 0}
-  hurtClip: {fileID: 0}
+  attackPoints: 2
 --- !u!114 &114569996519555076
 MonoBehaviour:
   m_ObjectHideFlags: 0

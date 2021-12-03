@@ -640,7 +640,9 @@ MonoBehaviour:
   faction: 1
   unitName: Orc
   movementArea: 3
+  attackArea: 1
   healthBar: {fileID: 3236404463026931087}
+  attackPoints: 2
 --- !u!114 &114754568219390936
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ namespace Units {
         internal int unitMaxHealth = 3;
         internal HealthSystem healthSystem;
 
+        public int attackPoints = 1;
+
         //ANIMATIONS
         private Animator anim;
 
