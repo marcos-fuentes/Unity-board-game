@@ -98,20 +98,27 @@ namespace Managers
                 var bottomTile = _tiles[new Vector2(baseTile.HorizontalX, movementDown)];
 
                 //Check if there's any tile that shouldn't be walkable so in that case there won't be more movement to that direction
-                if (!leftMovementBlocked) leftMovementBlocked = !CheckIfTileIsWalkable(leftTile);
-                if (!rightMovementBlocked) rightMovementBlocked = !CheckIfTileIsWalkable(rightTile);
-                if (!upMovementBlocked) upMovementBlocked = !CheckIfTileIsWalkable(upperTile);
-                if (!downMovementBlocked) downMovementBlocked = !CheckIfTileIsWalkable(bottomTile);
+                var isInsideAttackArea = movementLenght <= baseUnit.attackArea;
+                
+                if (!leftMovementBlocked) leftMovementBlocked = !CheckIfTileIsWalkable(leftTile, baseUnit, isInsideAttackArea);
+                if (!rightMovementBlocked) rightMovementBlocked = !CheckIfTileIsWalkable(rightTile, baseUnit, isInsideAttackArea);
+                if (!upMovementBlocked) upMovementBlocked = !CheckIfTileIsWalkable(upperTile, baseUnit, isInsideAttackArea);
+                if (!downMovementBlocked) downMovementBlocked = !CheckIfTileIsWalkable(bottomTile, baseUnit, isInsideAttackArea);
             }
         }
 
-        private bool CheckIfTileIsWalkable(BaseTile tile)
-        {
-            if (tile.IsWalkable())
-            {
-                tile.SetTileAsPossibleMovement(true);
+        private bool CheckIfTileIsWalkable(BaseTile tile, BaseUnit baseUnit, bool isInsideAttackArea) {
+            //Check if the tile to move it's walkable
+            if (tile.IsWalkable()) {
+                //If there's a unit from the same team it's also a blocker
+                if (tile.IsOccupiedByATeamUnit(baseUnit)) return false;
+                
+                if (isInsideAttackArea) tile.SetTileAsPossibleMovementAttack();
+                else tile.SetTileAsPossibleMovement();
+                
                 tilesHighlighted.Add(tile);
-                return true;
+                //If there's an enemy in the movement area, it's also a possible move but it's a block (no more moves in that direction)
+                return !tile.HasAnEnemy(baseUnit);
             }
             return false;
         }
@@ -120,7 +127,7 @@ namespace Managers
         {
             foreach (var baseTile in tilesHighlighted)
             {
-                baseTile.SetTileAsPossibleMovement(false);
+                baseTile.SetTileAsActive(false);
             }
         }
     }

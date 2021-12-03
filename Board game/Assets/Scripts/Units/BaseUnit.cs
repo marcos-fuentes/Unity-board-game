@@ -2,30 +2,45 @@ using System;
 using System.Threading.Tasks;
 using Tiles;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Units {
-    public class BaseUnit : MonoBehaviour {
-        [FormerlySerializedAs("OccupiedTile")] public BaseTile occupiedBaseTile;
+    public class BaseUnit : MonoBehaviour { 
+        public BaseTile occupiedBaseTile;
         public Faction faction;
         public string unitName;
         public int movementArea = 3;
+        public int attackArea = 1;
         public HealthBar healthBar;
+        internal int unitMaxHealth = 3;
+        internal HealthSystem healthSystem;
+
+        //ANIMATIONS
+        private Animator anim;
 
         // Start is called before the first frame update
         private void Start() {
-            var healthSystem = new HealthSystem(3);
+            healthSystem = new HealthSystem(unitMaxHealth);
             healthBar.Setup(healthSystem);
             Debug.Log($"Unit name: {unitName} | Health: {healthBar.HealthSystem.GetHealthPercent()}");
-            TestHealth();
+
+            anim = gameObject.GetComponent<Animator>();
         }
 
-        private async Task TestHealth() {
-            while (healthBar.HealthSystem.GetHealth() > 0) {
-                Debug.Log($"Health: {healthBar.HealthSystem.GetHealthPercent()}");
-                await Task.Delay(TimeSpan.FromSeconds(3));
-                healthBar.HealthSystem.Damage(1);
+        public bool DamageUnit(int damage) {
+            var isDead = false;
+            healthSystem.Damage(damage);
+            if (healthSystem.GetHealth() > 0) anim.Play("Hurt");
+            else {
+                Dying(); 
+                isDead = true;
             }
+            return isDead;
         }
+
+        private void Dying() => anim.Play("Dying");
+
+        public void HealUnit(int heal) => healthSystem.Heal(heal);
+        
+        public void AttackAnimation() => anim.Play("Slashing");
     }
 }

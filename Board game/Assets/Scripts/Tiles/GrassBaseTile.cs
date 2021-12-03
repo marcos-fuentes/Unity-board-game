@@ -16,10 +16,8 @@ namespace Tiles
             _renderer.color = isOffset ? _offsetColor : _baseColor;
         }
 
-        public bool IsWalkable()
-        {
-            return _tileUnit == null;
-        }
+        public bool IsWalkable() => true;
+        
 
 
         public void MoveUnit(BaseUnit baseUnit)

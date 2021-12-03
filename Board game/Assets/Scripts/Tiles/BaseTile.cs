@@ -14,10 +14,11 @@ namespace Tiles
         [SerializeField] protected SpriteRenderer _renderer;
         [SerializeField] internal GameObject _highlight;
         [SerializeField] internal GameObject _possibleMove;
+        [SerializeField] internal GameObject _possibleMovementHighlight;
         [SerializeField] internal BaseUnit _tileUnit;
-        
-        
 
+        private bool canBeAttacked;
+        
         public bool isAngelSpawnable;
         public bool isOrcSpawnable;
         internal int HorizontalX;
@@ -26,16 +27,23 @@ namespace Tiles
         private Color _notWalkableHighlight = new Color(255, 0, 0, 0.5f);
         private Color _walkableHighlight = new Color(255, 255, 255, 0.5f);
 
+        private Color _possibleAttackColor = new Color(255, 0, 0, 0.5f);
+        private Color _possibleMoveColor = new Color(255, 247, 0, 0.5f);
+
         public virtual void Init(int x, int y) { }
 
         public bool IsWalkable()
         {
             return this is IWalkable iWalkable && iWalkable.IsWalkable();
         }
-
-        private bool IsPossibleMove()  {
-            return IsWalkable() && _possibleMove.activeSelf;
+        
+        public bool IsOccupiedByATeamUnit(BaseUnit baseUnit) {
+            return _tileUnit != null && _tileUnit.faction == baseUnit.faction;
         }
+
+        private bool IsPossibleMove() => IsWalkable() && _possibleMove.activeSelf;
+        public bool CanBeAttacked() => IsWalkable() && _tileUnit != null;
+        
 
         private void SetHighLightedTile(bool highlight)
         {
@@ -50,11 +58,24 @@ namespace Tiles
             _highlight.SetActive(highlight);
         }
         
-        public void SetTileAsPossibleMovement(bool possibleMovement) {
-            _possibleMove.SetActive(possibleMovement);
+        public void SetTileAsPossibleMovementAttack() {
+            _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleAttackColor;
+            canBeAttacked = true;
+            SetTileAsActive(true);
         }
         
+        public void SetTileAsPossibleMovement() {
+            _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleMoveColor;
+            SetTileAsActive(true);
+        }
+
+        public void SetTileAsActive(bool isActive) {
+            _possibleMove.SetActive(isActive);
+            if (!isActive) canBeAttacked = false;
+        } 
         
+        
+
         /**
         * Assign a Unit to a Tile
         */
@@ -93,17 +114,14 @@ namespace Tiles
      * unit: pass the unit that you want to manage
      * factionTurn: the faction of the turn you are using
      */
-        private void ManageUnitTurn(BaseUnit unit, Faction factionTurn)
-        {
-            if (unit != null) {
-                if (IsPossibleMove())
-                {
-                    //STEP MOVE UNIT TO TILE
-                    if (_tileUnit == null) MoveUnit(unit);
+        private void ManageUnitTurn(BaseUnit unitSelected, Faction factionTurn) {
+            if (unitSelected != null) {
+                //MOVE UNIT TO TILE
+                if (IsPossibleMove() && _tileUnit == null) MoveUnit(unitSelected);
 
-                    //STEP ATTACK
-                    else Attack(unit);
-                }
+                //ATTACK
+                else if (IsPossibleMove() && _tileUnit != null && _tileUnit.faction != factionTurn) Attack(unitSelected);
+                
                 //CLEAR MOVE
                 else ClearMove();
 
@@ -115,11 +133,22 @@ namespace Tiles
             }
         }
 
-        private void Attack(BaseUnit unit)
-        {
-            Destroy(_tileUnit.gameObject);
-            _tileUnit = null;
-            MoveUnit(unit);
+        private void Attack(BaseUnit unit) {
+            if (!canBeAttacked) return;
+            unit.AttackAnimation();
+            var isEnemyDead = _tileUnit.DamageUnit(1);
+            if (isEnemyDead) {
+                Destroy(_tileUnit.gameObject);
+                _tileUnit = null;
+            }
+
+            GridManager.Instance.HideMoves();
+            GameManager.Instance.ChangeState(ChangeTurn(unit));
+        }
+
+        private GameState ChangeTurn(BaseUnit unit) {
+            ClearMove();
+            return unit.faction == Angels ? OrcsTurn : AngelsTurn;   
         }
 
         //EVENTS
@@ -159,5 +188,7 @@ namespace Tiles
                     break;
             }
         }
+
+        public bool HasAnEnemy(BaseUnit baseUnit) => _tileUnit != null && _tileUnit.faction != baseUnit.faction;
     }
 }

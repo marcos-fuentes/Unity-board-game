@@ -15,7 +15,8 @@ MonoBehaviour:
   TileName: Grass Tile
   _renderer: {fileID: 6714531371269302274}
   _highlight: {fileID: 375809967299770330}
-  _possibleMove: {fileID: 2385363722560922447}
+  _possibleMove: {fileID: 7912733952786839589}
+  _possibleMovementHighlight: {fileID: 8650967897100465541}
   _tileUnit: {fileID: 0}
   isAngelSpawnable: 0
   isOrcSpawnable: 0
@@ -119,8 +120,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7937426229364029153, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
   m_PrefabInstance: {fileID: 7714738958762524987}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2385363722560922447 stripped
+--- !u!1 &7912733952786839589 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5335289600383427188, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
+  m_CorrespondingSourceObject: {fileID: 495378015339968798, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
+  m_PrefabInstance: {fileID: 7714738958762524987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8650967897100465541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1377586102081385662, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
   m_PrefabInstance: {fileID: 7714738958762524987}
   m_PrefabAsset: {fileID: 0}
