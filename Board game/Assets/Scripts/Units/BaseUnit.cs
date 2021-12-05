@@ -14,7 +14,7 @@ namespace Units {
         internal int unitMaxHealth = 3;
         internal HealthSystem healthSystem;
 
-        public int attackPoints = 1;
+        public int attackDamage = 1;
 
         //ANIMATIONS
         private Animator anim;
@@ -23,7 +23,7 @@ namespace Units {
         private void Start() {
             healthSystem = new HealthSystem(unitMaxHealth);
             healthBar.Setup(healthSystem);
-            Debug.Log($"Unit name: {unitName} | Health: {healthBar.HealthSystem.GetHealthPercent()}");
+            Debug.Log($"Unit name: {unitName} | Health: {healthBar._healthSystem.GetHealthPercent()}");
 
             anim = gameObject.GetComponent<Animator>();
         }

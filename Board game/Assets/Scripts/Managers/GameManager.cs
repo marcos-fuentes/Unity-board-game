@@ -15,6 +15,8 @@ namespace Managers
 
         private int _currentAttacks;
         private int _currentMoves;
+        public bool isPaused = false;
+        
 
         private void Awake() => Instance = this;
 
@@ -48,9 +50,11 @@ namespace Managers
                     break;
                 case GameState.AngelsTurn:
                     ResetTurnValues();
+                    UIManager.Instance.ChangeTurn(newState);
                     break;
                 case GameState.OrcsTurn:
                     ResetTurnValues();
+                    UIManager.Instance.ChangeTurn(newState);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -60,16 +64,44 @@ namespace Managers
         private void ResetTurnValues(){
             _currentAttacks = maxAttackPerTurn;
             _currentMoves = maxMovesPerTurn;
+            UIManager.Instance.UpdateUITurnInfo(_currentMoves, _currentAttacks);
         }
 
         public void SubAttackNumber() {
             _currentAttacks--;
             if (_currentAttacks < 0) _currentAttacks = 0;
+            UIManager.Instance.UpdateUITurnInfo(_currentMoves, _currentAttacks);
         }
         
         public void SubMoveNumber() {
             _currentMoves--;
             if (_currentMoves < 0) _currentMoves = 0;
+            UIManager.Instance.UpdateUITurnInfo(_currentMoves, _currentAttacks);
+        }
+
+        public void SkipTurn() {
+            
+            switch (gameState) {
+                case GameState.AngelsTurn:
+                    ClearMove();
+                    ChangeState(GameState.OrcsTurn);
+                    break;
+                case GameState.OrcsTurn:
+                    ClearMove();
+                    ChangeState(GameState.AngelsTurn);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            
+        }
+        public static void ClearMove() {
+            UnitManager.Instance.SetSelectedUnit(null);
+            GridManager.Instance.HideMoves();
+        }
+
+        public void SetStatusPause(bool pauseObjectActiveSelf) {
+            isPaused = pauseObjectActiveSelf;
         }
     }
    

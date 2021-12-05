@@ -24,10 +24,7 @@ namespace Tiles
         public bool isOrcSpawnable;
         internal int HorizontalX;
         internal int VerticalY;
-
-        private Color _notWalkableHighlight = new Color(255, 0, 0, 0.5f);
-        private Color _walkableHighlight = new Color(255, 255, 255, 0.5f);
-
+        
         private Color _possibleAttackColor = new Color(255, 0, 0, 0.7f);
         private Color _possibleMoveColor = new Color(255, 247, 0, 0.7f);
 
@@ -111,12 +108,6 @@ namespace Tiles
             GameManager.Instance.SubMoveNumber();
             ChangeTurn(unitToMove);
         }
-        
-        private static void ClearMove()
-        {
-            UnitManager.Instance.SetSelectedUnit(null);
-            GridManager.Instance.HideMoves();
-        }
 
         /**
      * Manages the turn of the unit
@@ -132,7 +123,7 @@ namespace Tiles
                 else if (IsPossibleMove() && _tileUnit != null && _tileUnit.faction != factionTurn) Attack(unitSelected);
                 
                 //CLEAR MOVE
-                else ClearMove();
+                else GameManager.ClearMove();
 
             } else {
                 //SELECT UNIT TO MOVE
@@ -145,7 +136,7 @@ namespace Tiles
         private void Attack(BaseUnit unit) {
             if (!canBeAttacked) return;
             unit.AttackAnimation();
-            var isEnemyDead = _tileUnit.DamageUnit(unit.attackPoints);
+            var isEnemyDead = _tileUnit.DamageUnit(unit.attackDamage);
             if (isEnemyDead) {
                 Destroy(_tileUnit.gameObject);
                 _tileUnit = null;
@@ -157,7 +148,7 @@ namespace Tiles
         }
 
         private void ChangeTurn(BaseUnit unit) {
-            ClearMove();
+            GameManager.ClearMove();
             var gameManager = GameManager.Instance;
             if (gameManager.IsTurnOver()) gameManager.ChangeState(unit.faction == Angels ? OrcsTurn : AngelsTurn);
         }
@@ -168,20 +159,23 @@ namespace Tiles
  * Enables a highlight resource to each tile when mouse is over the tile
  */
         private void OnMouseEnter() {
+            if (GameManager.Instance.isPaused) return;
             SetHighLightedTile();
         }
         /**
  * Disables a highlight resource to each tile when mouse leaves the tile
  */
         private void OnMouseExit() {
+            if (GameManager.Instance.isPaused) return;
             ClearMouseHighLights();
         }
     
         /**
  * When a Tile is clicked Units turns are managed to move or destroy another unit.
  */
-        private void OnMouseDown()
-        {
+        private void OnMouseDown() {
+            if (GameManager.Instance.isPaused) return;
+            
             Debug.Log("Mouse clicked: " + TileName);
             switch (GameManager.Instance.gameState)
             {

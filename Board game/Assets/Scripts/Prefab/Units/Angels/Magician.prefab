@@ -860,6 +860,7 @@ MonoBehaviour:
   movementArea: 3
   attackArea: 3
   healthBar: {fileID: 2024651639475632872}
+  attackDamage: 1
 --- !u!114 &114582981220711258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,7 +1335,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f07b85edbe0344b9f9970727f3c36048, type: 3}
   m_Color: {r: 0.023529414, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -1447,7 +1448,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: f07b85edbe0344b9f9970727f3c36048, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -1529,7 +1530,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: f07b85edbe0344b9f9970727f3c36048, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -1672,6 +1673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c21afb6f85148cc8820420b2c8e3754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bar: {fileID: 2298067159790434178}
 --- !u!1 &8731486516550652551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,7 +1826,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f07b85edbe0344b9f9970727f3c36048, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
