@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Changed some colors and added attack points to each hero">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Base Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Base Tile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assasin.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assasin.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/HealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/HealthBar.cs" afterDir="false" />
-    </list>
+    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Added a time countdown to switch turns and improved the UI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -255,7 +239,7 @@
       <workItem from="1638383464688" duration="1108000" />
       <workItem from="1638429637808" duration="13881000" />
       <workItem from="1638525088900" duration="487000" />
-      <workItem from="1638535088719" duration="23707000" />
+      <workItem from="1638535088719" duration="24335000" />
     </task>
     <task id="LOCAL-00001" summary="Created Scripts for board and tiles">
       <created>1634922289188</created>
@@ -404,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638555253250</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added a time countdown to switch turns and improved the UI">
+      <created>1638733514664</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1638733514664</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +451,8 @@
     <MESSAGE value="Make the health bar refresh with events" />
     <MESSAGE value="Improved movement area and attack turn" />
     <MESSAGE value="Changed some colors and added attack points to each hero" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed some colors and added attack points to each hero" />
+    <MESSAGE value="Added a time countdown to switch turns and improved the UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a time countdown to switch turns and improved the UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
