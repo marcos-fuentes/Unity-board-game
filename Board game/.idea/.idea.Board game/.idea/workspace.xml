@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Added a time countdown to switch turns and improved the UI" />
+    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Cleared workspace">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -239,7 +242,7 @@
       <workItem from="1638383464688" duration="1108000" />
       <workItem from="1638429637808" duration="13881000" />
       <workItem from="1638525088900" duration="487000" />
-      <workItem from="1638535088719" duration="24335000" />
+      <workItem from="1638535088719" duration="25278000" />
     </task>
     <task id="LOCAL-00001" summary="Created Scripts for board and tiles">
       <created>1634922289188</created>
@@ -395,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638733514664</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Cleared workspace">
+      <created>1638733859347</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1638733859347</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,7 +462,8 @@
     <MESSAGE value="Improved movement area and attack turn" />
     <MESSAGE value="Changed some colors and added attack points to each hero" />
     <MESSAGE value="Added a time countdown to switch turns and improved the UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a time countdown to switch turns and improved the UI" />
+    <MESSAGE value="Cleared workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleared workspace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

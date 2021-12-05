@@ -41,6 +41,7 @@ namespace Managers
 
         private void OnPauseClick() {
             _pauseObject.SetActive(!_pauseObject.activeSelf);
+            timerIsRunning = !timerIsRunning;
             GameManager.Instance.SetStatusPause(_pauseObject.activeSelf);
         }
         
