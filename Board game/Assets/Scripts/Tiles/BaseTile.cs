@@ -32,7 +32,12 @@ namespace Tiles
 
         public bool IsWalkable()
         {
-            return this is IWalkable iWalkable && iWalkable.IsWalkable();
+            return this is IWalkable iWalkable && iWalkable.Walkable();
+        }
+        
+        public bool IsSpawnable()
+        {
+            return this is IWalkable iWalkable && iWalkable.Spawnable();
         }
 
         public bool IsOccupiedByATeamUnit(BaseUnit baseUnit) =>

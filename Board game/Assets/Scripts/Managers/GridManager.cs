@@ -67,9 +67,9 @@ namespace Managers
         public BaseTile GetSpawnTile(Faction faction)
         {
             return faction == Angels
-                ? _tiles.Where(tile => tile.Value.IsWalkable() && tile.Value.isAngelSpawnable).OrderBy(t => Random.value)
+                ? _tiles.Where(tile => tile.Value.IsSpawnable() && tile.Value.isAngelSpawnable).OrderBy(t => Random.value)
                     .First().Value
-                : _tiles.Where(tile => tile.Value.IsWalkable() && tile.Value.isOrcSpawnable).OrderBy(t => Random.value)
+                : _tiles.Where(tile => tile.Value.IsSpawnable() && tile.Value.isOrcSpawnable).OrderBy(t => Random.value)
                     .First().Value;
         }
 

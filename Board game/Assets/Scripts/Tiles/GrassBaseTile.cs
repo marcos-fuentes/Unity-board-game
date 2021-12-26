@@ -16,11 +16,10 @@ namespace Tiles
             _renderer.color = isOffset ? _offsetColor : _baseColor;
         }
 
-        public bool IsWalkable() => true;
-        
+        public bool Walkable() => true;
+        public bool Spawnable() => _tileUnit == null;
 
-
-        public void MoveUnit(BaseUnit baseUnit)
+            public void MoveUnit(BaseUnit baseUnit)
         {
             throw new System.NotImplementedException();
         }

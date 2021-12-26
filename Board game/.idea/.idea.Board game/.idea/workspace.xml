@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Base Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Base Tile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Grass Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Grass Tile.prefab" afterDir="false" />
+    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Improved the view of the movement highlight">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassBaseTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassBaseTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/IWalkable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/IWalkable.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +243,7 @@
       <workItem from="1638429637808" duration="13881000" />
       <workItem from="1638525088900" duration="487000" />
       <workItem from="1638535088719" duration="25867000" />
-      <workItem from="1640537531607" duration="987000" />
+      <workItem from="1640537531607" duration="2644000" />
     </task>
     <task id="LOCAL-00001" summary="Created Scripts for board and tiles">
       <created>1634922289188</created>
@@ -419,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638893720475</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Improved the view of the movement highlight">
+      <created>1640540957685</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1640540957685</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +462,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Created Scripts for board and tiles" />
     <MESSAGE value="Added the creation of a simple board" />
     <MESSAGE value="Created 2 type of tiles and generating them in a random order" />
     <MESSAGE value="Imported characters" />
@@ -479,27 +486,28 @@
     <MESSAGE value="Cleared workspace" />
     <MESSAGE value="Pause timer when pause is enabled" />
     <MESSAGE value="Created app executable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created app executable" />
+    <MESSAGE value="Improved the view of the movement highlight" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved the view of the movement highlight" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs</url>
-          <line>105</line>
+          <line>110</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" initialLine="77" containingFunctionPresentation="method 'MoveUnit'">
             <startOffsets>
-              <option value="3595" />
+              <option value="3729" />
             </startOffsets>
             <endOffsets>
-              <option value="3639" />
+              <option value="3773" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs</url>
-          <line>121</line>
+          <line>126</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" initialLine="100" containingFunctionPresentation="method 'ManageUnitTurn'">
             <startOffsets>
               <option value="-1" />
@@ -512,26 +520,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs</url>
-          <line>119</line>
+          <line>124</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" initialLine="97" containingFunctionPresentation="method 'ManageUnitTurn'">
             <startOffsets>
-              <option value="4123" />
+              <option value="4257" />
             </startOffsets>
             <endOffsets>
-              <option value="4144" />
+              <option value="4278" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs</url>
-          <line>117</line>
+          <line>122</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" initialLine="96" containingFunctionPresentation="method 'ManageUnitTurn'">
             <startOffsets>
-              <option value="4043" />
+              <option value="4177" />
             </startOffsets>
             <endOffsets>
-              <option value="4068" />
+              <option value="4202" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
@@ -541,10 +549,10 @@
           <line>100</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" initialLine="100" containingFunctionPresentation="method 'ShowPossibleMoves'">
             <startOffsets>
-              <option value="4429" />
+              <option value="4431" />
             </startOffsets>
             <endOffsets>
-              <option value="4433" />
+              <option value="4435" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
@@ -554,10 +562,10 @@
           <line>115</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" initialLine="113" containingFunctionPresentation="method 'CheckIfTileIsWalkable'">
             <startOffsets>
-              <option value="5423" />
+              <option value="5425" />
             </startOffsets>
             <endOffsets>
-              <option value="5462" />
+              <option value="5464" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />

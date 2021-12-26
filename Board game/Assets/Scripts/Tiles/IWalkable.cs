@@ -4,7 +4,9 @@ namespace Tiles
 {
     public interface IWalkable
     {
-        public bool IsWalkable();
+        public bool Walkable();
+
+        public bool Spawnable();
         public void MoveUnit(BaseUnit baseUnit);
     }
 }
