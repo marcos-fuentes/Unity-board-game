@@ -7,6 +7,7 @@ namespace Units {
     public class BaseUnit : MonoBehaviour { 
         public BaseTile occupiedBaseTile;
         public Faction faction;
+        public Class unitClass;
         public string unitName;
         public int movementArea = 3;
         public int attackArea = 1;
@@ -44,5 +45,6 @@ namespace Units {
         public void HealUnit(int heal) => healthSystem.Heal(heal);
         
         public void AttackAnimation() => anim.Play("Slashing");
+        public void HealAnimation() => anim.Play("Throwing");
     }
 }

@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupiedBaseTile: {fileID: 0}
   faction: 0
+  unitClass: 2
   unitName: Warrior
   movementArea: 3
   attackArea: 1

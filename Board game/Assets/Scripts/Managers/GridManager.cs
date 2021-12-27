@@ -100,17 +100,27 @@ namespace Managers
                 //Check if there's any tile that shouldn't be walkable so in that case there won't be more movement to that direction
                 var isInsideAttackArea = movementLenght <= baseUnit.attackArea;
                 
-                if (!leftMovementBlocked) leftMovementBlocked = !CheckIfTileIsWalkable(leftTile, baseUnit, isInsideAttackArea);
-                if (!rightMovementBlocked) rightMovementBlocked = !CheckIfTileIsWalkable(rightTile, baseUnit, isInsideAttackArea);
-                if (!upMovementBlocked) upMovementBlocked = !CheckIfTileIsWalkable(upperTile, baseUnit, isInsideAttackArea);
-                if (!downMovementBlocked) downMovementBlocked = !CheckIfTileIsWalkable(bottomTile, baseUnit, isInsideAttackArea);
+                if (!leftMovementBlocked) leftMovementBlocked = !CheckPossibleActions(leftTile, baseUnit, isInsideAttackArea);
+                if (!rightMovementBlocked) rightMovementBlocked = !CheckPossibleActions(rightTile, baseUnit, isInsideAttackArea);
+                if (!upMovementBlocked) upMovementBlocked = !CheckPossibleActions(upperTile, baseUnit, isInsideAttackArea);
+                if (!downMovementBlocked) downMovementBlocked = !CheckPossibleActions(bottomTile, baseUnit, isInsideAttackArea);
             }
         }
 
-        private bool CheckIfTileIsWalkable(BaseTile tile, BaseUnit baseUnit, bool isInsideAttackArea) {
+        //It returns if the movement in that direction should be blocked
+        private bool CheckPossibleActions(BaseTile tile, BaseUnit baseUnit, bool isInsideAttackArea) {
             //Check if the tile to move it's walkable
+            if (!tile.IsWalkable()) return false;
+
             //If there's a unit from the same team it's also a blocker
-            if (!tile.IsWalkable() || tile.IsOccupiedByATeamUnit(baseUnit)) return false;
+            if (tile.IsOccupiedByATeamUnit(baseUnit)) {
+                //When its magician we set the tile to be possible to heal
+                if (baseUnit.unitClass == Class.Magician && tile.UnitCanBeHealed()) {
+                    tile.SetTileAsPossibleMovementHeal();
+                    tilesHighlighted.Add(tile);    
+                }
+                return false;
+            }
 
             if (isInsideAttackArea) {
                 tile.SetTileAsPossibleMovementAttack();

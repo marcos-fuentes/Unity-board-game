@@ -834,6 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupiedBaseTile: {fileID: 0}
   faction: 1
+  unitClass: 1
   unitName: Goblin
   movementArea: 5
   attackArea: 1

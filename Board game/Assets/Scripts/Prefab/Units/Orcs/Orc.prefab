@@ -638,6 +638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupiedBaseTile: {fileID: 0}
   faction: 1
+  unitClass: 2
   unitName: Orc
   movementArea: 3
   attackArea: 1

@@ -856,6 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupiedBaseTile: {fileID: 0}
   faction: 0
+  unitClass: 0
   unitName: Magician
   movementArea: 3
   attackArea: 3

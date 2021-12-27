@@ -12,3 +12,8 @@ public enum Faction
 {
     Angels, Orcs
 } 
+
+public enum Class
+{
+    Magician, Assassin, Warrior
+} 

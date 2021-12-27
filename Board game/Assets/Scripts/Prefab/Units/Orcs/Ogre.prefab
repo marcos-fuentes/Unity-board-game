@@ -1246,6 +1246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupiedBaseTile: {fileID: 0}
   faction: 1
+  unitClass: 0
   unitName: Ogre
   movementArea: 3
   attackArea: 3

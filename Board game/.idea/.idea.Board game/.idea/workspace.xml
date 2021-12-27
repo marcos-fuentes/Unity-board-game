@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Improved the view of the movement highlight">
+    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Fixed spawn bugs">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assassin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassBaseTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/GrassBaseTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/IWalkable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/IWalkable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptableUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptableUnit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Fallen_Angels.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Fallen_Angels.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Fallen_Angels.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Magician/Vector Parts/Fallen_Angels.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Fallen_Angels.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Warrior/Vector Parts/Fallen_Angels.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Goblin.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Goblin.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Ogre.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Ogre.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Orc.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Orc.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +60,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/GridPaintPaletteWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.4.8/Editor/Window/TimelineWindow_TimeCursor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.9.0/Tests/Editor/Collaborate/Scenario/BasicTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/MaskEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Editor/TMPro_FontPlugin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.4.8/Editor/Utilities/TimeReferenceUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/28f44536d0ff4020bea5a47bd63d542b18000/fe/8cd07aba/HingeJoint.cs" root0="SKIP_HIGHLIGHTING" />
@@ -88,6 +102,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@5.0.7/Editor/LayoutOverlay/Manipulators/Draggable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.4.8/Editor/inspectors/TimelineInspectorUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.4.8/Runtime/Playables/PrefabControlPlayable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/marcos.fuentes/Unity-board-game/Board game/Assets/Scripts/Tiles/BaseTile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@5.0.7/Editor/SkinningModule/SkinningModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/877f5c261f674ce1a8e59a9abcc42ec013b800/83/61a82e8c/Material.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_FontFeatureTable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -243,7 +258,7 @@
       <workItem from="1638429637808" duration="13881000" />
       <workItem from="1638525088900" duration="487000" />
       <workItem from="1638535088719" duration="25867000" />
-      <workItem from="1640537531607" duration="2644000" />
+      <workItem from="1640537531607" duration="6542000" />
     </task>
     <task id="LOCAL-00001" summary="Created Scripts for board and tiles">
       <created>1634922289188</created>
@@ -427,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640540957685</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fixed spawn bugs">
+      <created>1640543398770</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1640543398770</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +484,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added the creation of a simple board" />
     <MESSAGE value="Created 2 type of tiles and generating them in a random order" />
     <MESSAGE value="Imported characters" />
     <MESSAGE value="Moved prefabs to correct package" />
@@ -487,27 +508,28 @@
     <MESSAGE value="Pause timer when pause is enabled" />
     <MESSAGE value="Created app executable" />
     <MESSAGE value="Improved the view of the movement highlight" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved the view of the movement highlight" />
+    <MESSAGE value="Fixed spawn bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed spawn bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs</url>
-          <line>110</line>
+          <line>125</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" initialLine="77" containingFunctionPresentation="method 'MoveUnit'">
             <startOffsets>
-              <option value="3729" />
+              <option value="4285" />
             </startOffsets>
             <endOffsets>
-              <option value="3773" />
+              <option value="4329" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs</url>
-          <line>126</line>
+          <line>141</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" initialLine="100" containingFunctionPresentation="method 'ManageUnitTurn'">
             <startOffsets>
               <option value="-1" />
@@ -520,26 +542,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs</url>
-          <line>124</line>
+          <line>139</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" initialLine="97" containingFunctionPresentation="method 'ManageUnitTurn'">
             <startOffsets>
-              <option value="4257" />
+              <option value="4813" />
             </startOffsets>
             <endOffsets>
-              <option value="4278" />
+              <option value="4834" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs</url>
-          <line>122</line>
+          <line>137</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" initialLine="96" containingFunctionPresentation="method 'ManageUnitTurn'">
             <startOffsets>
-              <option value="4177" />
+              <option value="4733" />
             </startOffsets>
             <endOffsets>
-              <option value="4202" />
+              <option value="4758" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
@@ -559,13 +581,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs</url>
-          <line>115</line>
+          <line>125</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" initialLine="113" containingFunctionPresentation="method 'CheckIfTileIsWalkable'">
             <startOffsets>
-              <option value="5425" />
+              <option value="5843" />
             </startOffsets>
             <endOffsets>
-              <option value="5464" />
+              <option value="5882" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />

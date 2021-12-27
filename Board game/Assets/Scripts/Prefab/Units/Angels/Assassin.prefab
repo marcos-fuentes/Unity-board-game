@@ -1457,7 +1457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupiedBaseTile: {fileID: 0}
   faction: 0
-  unitName: 
+  unitClass: 1
+  unitName: Assassin
   movementArea: 5
   attackArea: 1
   healthBar: {fileID: 1867284904}
