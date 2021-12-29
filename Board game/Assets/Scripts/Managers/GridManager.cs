@@ -14,8 +14,10 @@ namespace Managers
     {
         public static GridManager Instance;
         [SerializeField] private int _width, _height;
-        [SerializeField] private BaseTile grassBaseTile, mountainBaseTile;
+        [SerializeField] private BaseTile grassBaseTile, mountainBaseTile, horizontalBaseTile;
         [SerializeField] private Transform _cam;
+        [SerializeField] private Transform _grid;
+
         private Dictionary<Vector2, BaseTile> _tiles;
         private List<BaseTile> tilesHighlighted = new List<BaseTile>();
 
@@ -31,11 +33,16 @@ namespace Managers
         internal void GenerateGrid()
         {
             _tiles = new Dictionary<Vector2, BaseTile>();
+            foreach (var tile in _grid.transform.GetComponentsInChildren<BaseTile>()) {
+                _tiles[new Vector2(tile.position.x, tile.position.y)] = tile;
+            }
+            
+            /***
             for (int x = 0; x < _width; x++)
             {
                 for (int y = 0; y < _height; y++)
                 {
-                    var randomTile = Random.Range(0, 10) == 3 ? mountainBaseTile : grassBaseTile;
+                    var randomTile = Random.Range(0, 10) == 3 ? horizontalBaseTile : grassBaseTile;
                     var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
 
                     spawnedTile.name = $"Tile {x} {y}";
@@ -48,7 +55,8 @@ namespace Managers
                 }
             }
 
-            _cam.transform.position = new Vector3((float) _width / 2 - 0.5f, (float) _height / 2 - 0.5f, -30);
+            //_cam.transform.position = new Vector3((float) _width / 2 - 0.5f, (float) _height / 2 - 0.5f, -30);
+            */
         }
 
         /**
@@ -57,8 +65,8 @@ namespace Managers
         private void AssignTileSpawnable(BaseTile spawnedBaseTile, int y)
         {
             //Set tiles as spawnable when they are below the height (16 / 4 = 4 ) OR when they are the above height ( 16 - 16 / 4 = 12)
-            spawnedBaseTile.isAngelSpawnable = y < _height / 4 && spawnedBaseTile.IsWalkable();
-            spawnedBaseTile.isOrcSpawnable = y > _height - _height / 4 && spawnedBaseTile.IsWalkable();
+            //  spawnedBaseTile.isAngelSpawnable = y < _height / 4 && spawnedBaseTile.IsWalkable();
+            // spawnedBaseTile.isOrcSpawnable = y > _height - _height / 4 && spawnedBaseTile.IsWalkable();
         }
 
         /**
@@ -86,36 +94,56 @@ namespace Managers
             
             for (var movementLenght = 1; movementLenght <= baseUnit.movementArea; movementLenght++)
             {
-                var movementLeft = (baseTile.HorizontalX - movementLenght < 0) ? 0 : baseTile.HorizontalX - movementLenght; //Left movement cannot be less than position 0
-                var movementRight = (baseTile.HorizontalX + movementLenght > _width - 1) ? _width - 1 : baseTile.HorizontalX + movementLenght; //Right movement cannot be more than position width
+                var movementLeft = baseTile.position.x - movementLenght; //Left movement cannot be less than position 0
+                var movementRight = baseTile.position.x + movementLenght; //Right movement cannot be more than position width
                 
-                var movementUp = (baseTile.VerticalY + movementLenght > _height - 1) ? _height - 1 : baseTile.VerticalY + movementLenght; //Upper movement cannot be more than height
-                var movementDown = (baseTile.VerticalY - movementLenght < 0) ? 0 : baseTile.VerticalY - movementLenght; //Right movement cannot be less than 0
-
-                var leftTile = _tiles[new Vector2(movementLeft, baseTile.VerticalY)];
-                var rightTile = _tiles[new Vector2(movementRight, baseTile.VerticalY)];
-                var upperTile = _tiles[new Vector2(baseTile.HorizontalX, movementUp)];
-                var bottomTile = _tiles[new Vector2(baseTile.HorizontalX, movementDown)];
-
-                //Check if there's any tile that shouldn't be walkable so in that case there won't be more movement to that direction
+                var movementDown = baseTile.position.y + movementLenght; //Down movement cannot be more than height
+                var movementUp = baseTile.position.y - movementLenght; //Upper movement cannot be less than 0
+                
+                Debug.Log(baseTile.name + " " + "x = " + baseTile.position.x + "y= " + baseTile.position.y);
+                Debug.Log("up: " + movementUp + "down: " + movementDown + "right: " + movementRight + "left: " + movementLeft);
+                
                 var isInsideAttackArea = movementLenght <= baseUnit.attackArea;
                 
-                if (!leftMovementBlocked) leftMovementBlocked = !CheckPossibleActions(leftTile, baseUnit, isInsideAttackArea);
-                if (!rightMovementBlocked) rightMovementBlocked = !CheckPossibleActions(rightTile, baseUnit, isInsideAttackArea);
-                if (!upMovementBlocked) upMovementBlocked = !CheckPossibleActions(upperTile, baseUnit, isInsideAttackArea);
-                if (!downMovementBlocked) downMovementBlocked = !CheckPossibleActions(bottomTile, baseUnit, isInsideAttackArea);
+                //Check if there's any tile that shouldn't be walkable so in that case there won't be more movement to that direction
+                if (movementLeft < 0) leftMovementBlocked = true;
+                if (!leftMovementBlocked) {
+                    var leftTile = _tiles[new Vector2(movementLeft, baseTile.position.y)];
+                    leftMovementBlocked = !CheckPossibleActions(leftTile, baseUnit, isInsideAttackArea);    
+                }
+                
+                if (movementRight > _width - 1) rightMovementBlocked = true;
+                if (!rightMovementBlocked) {
+                    var rightTile = _tiles[new Vector2(movementRight, baseTile.position.y)];
+                    rightMovementBlocked = !CheckPossibleActions(rightTile, baseUnit, isInsideAttackArea);    
+                }
+                
+                if (movementUp < 0) upMovementBlocked = true;
+                if (!upMovementBlocked) {
+                    var upperTile = _tiles[new Vector2(baseTile.position.x, movementUp)];
+                    upMovementBlocked = !CheckPossibleActions(upperTile, baseUnit, isInsideAttackArea);    
+                }
+                
+                if (movementDown > _height - 1) downMovementBlocked = true;
+                if (!downMovementBlocked) {
+                    var bottomTile = _tiles[new Vector2(baseTile.position.x, movementDown)];
+                    downMovementBlocked = !CheckPossibleActions(bottomTile, baseUnit, isInsideAttackArea);    
+                }
             }
         }
 
         //It returns if the movement in that direction should be blocked
-        private bool CheckPossibleActions(BaseTile tile, BaseUnit baseUnit, bool isInsideAttackArea) {
+        private bool CheckPossibleActions(BaseTile tile, BaseUnit selectedUnit, bool isInsideAttackArea) {
             //Check if the tile to move it's walkable
-            if (!tile.IsWalkable()) return false;
+            if (!tile.IsWalkable() || tile.IsTileOccupiedByUnitSelected(selectedUnit)) return false;
 
             //If there's a unit from the same team it's also a blocker
-            if (tile.IsOccupiedByATeamUnit(baseUnit)) {
+            if (tile.IsOccupiedByATeamUnit(selectedUnit)) {
                 //When its magician we set the tile to be possible to heal
-                if (baseUnit.unitClass == Class.Magician && tile.UnitCanBeHealed()) {
+                if (selectedUnit.unitClass == Class.Magician 
+                    && tile.UnitCanBeHealed()
+                    && selectedUnit.HealSystem.GetHealPoints() > 0
+                ) {
                     tile.SetTileAsPossibleMovementHeal();
                     tilesHighlighted.Add(tile);    
                 }
@@ -126,12 +154,12 @@ namespace Managers
                 tile.SetTileAsPossibleMovementAttack();
                 tilesHighlighted.Add(tile);
             }
-            else if (!tile.HasAnEnemy(baseUnit)) {
+            else if (!tile.HasAnEnemy(selectedUnit)) {
                 tile.SetTileAsPossibleMovement();
                 tilesHighlighted.Add(tile);
             }
             //If there's an enemy in the movement area, it's also a possible move but it's a block (no more moves in that direction)
-            return !tile.HasAnEnemy(baseUnit);
+            return !tile.HasAnEnemy(selectedUnit);
         }
 
         internal void HideMoves()

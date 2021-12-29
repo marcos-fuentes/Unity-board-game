@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using Tiles;
 using UnityEngine;
 
@@ -12,8 +10,10 @@ namespace Units {
         public int movementArea = 3;
         public int attackArea = 1;
         public HealthBar healthBar;
+        public HealBar healBar;
         internal int unitMaxHealth = 3;
-        internal HealthSystem healthSystem;
+        internal HealthSystem HealthSystem;
+        internal HealSystem HealSystem;
 
         public int attackDamage = 1;
 
@@ -22,27 +22,36 @@ namespace Units {
 
         // Start is called before the first frame update
         private void Start() {
-            healthSystem = new HealthSystem(unitMaxHealth);
-            healthBar.Setup(healthSystem);
+            HealthSystem = new HealthSystem(unitMaxHealth);
+            healthBar.Setup(HealthSystem);
             Debug.Log($"Unit name: {unitName} | Health: {healthBar._healthSystem.GetHealthPercent()}");
 
+            if (unitClass == Class.Magician) {
+                HealSystem = new HealSystem(3);
+                healBar.Setup(HealSystem);
+            }
+            
             anim = gameObject.GetComponent<Animator>();
         }
 
         public bool DamageUnit(int damage) {
             var isDead = false;
-            healthSystem.Damage(damage);
-            if (healthSystem.GetHealth() > 0) anim.Play("Hurt");
+            HealthSystem.Damage(damage);
+            if (HealthSystem.GetHealth() > 0) anim.Play("Hurt");
             else {
                 Dying(); 
                 isDead = true;
             }
             return isDead;
         }
+        
+        public void SubtractHealPoints(int healPoints) {
+            if (unitClass == Class.Magician) HealSystem.SubtractHealPoints(healPoints);
+        }
 
         private void Dying() => anim.Play("Dying");
 
-        public void HealUnit(int heal) => healthSystem.Heal(heal);
+        public void HealUnit(int heal) => HealthSystem.Heal(heal);
         
         public void AttackAnimation() => anim.Play("Slashing");
         public void HealAnimation() => anim.Play("Throwing");

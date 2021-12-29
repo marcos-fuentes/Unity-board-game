@@ -19,7 +19,7 @@ namespace Tiles
         public bool Walkable() => true;
         public bool Spawnable() => _tileUnit == null;
 
-            public void MoveUnit(BaseUnit baseUnit)
+        public void MoveUnit(BaseUnit baseUnit)
         {
             throw new System.NotImplementedException();
         }

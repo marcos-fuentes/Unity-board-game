@@ -17,6 +17,7 @@ namespace Tiles
         [SerializeField] internal GameObject _possibleMove;
         [SerializeField] internal GameObject _possibleMovementHighlight;
         [SerializeField] internal BaseUnit _tileUnit;
+        [SerializeField] internal Vector2 position;
 
         private bool _canBeAttacked;
         private bool _canBeHealed;
@@ -47,7 +48,9 @@ namespace Tiles
             && _tileUnit.faction == selectedUnit.faction
             && _tileUnit.name != selectedUnit.name;
 
-        public bool UnitCanBeHealed() => _tileUnit != null && _tileUnit.healthSystem.GetHealthPercent() < 1;
+        public bool IsTileOccupiedByUnitSelected(BaseUnit selectedUnit) => _tileUnit != null && _tileUnit.name == selectedUnit.name;
+
+        public bool UnitCanBeHealed() => _tileUnit != null && _tileUnit.HealthSystem.GetHealthPercent() < 1;
 
         private bool IsPossibleMove() => IsWalkable() && _possibleMove.activeSelf;
         public bool CanBeAttacked() => IsWalkable() && _tileUnit != null;
@@ -109,9 +112,9 @@ namespace Tiles
         {
             if (unit.occupiedBaseTile != null) unit.occupiedBaseTile._tileUnit = null;
 
-            //Subtract 0.5 to get the unit centered in vertical
+            //Subtract 20 points to get the unit centered in vertical
             var transformPosition = transform.position;
-            transformPosition.y -= 0.5f;
+            transformPosition.y -= 30;
 
             unit.transform.position = transformPosition;
             _tileUnit = unit;
@@ -176,6 +179,7 @@ namespace Tiles
             if (!_canBeHealed) return;
             unit.HealAnimation(); 
             _tileUnit.HealUnit(1);
+            unit.SubtractHealPoints(1);
             
             GridManager.Instance.HideMoves();
             ChangeTurn(unit);
