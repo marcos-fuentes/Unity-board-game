@@ -27,9 +27,9 @@ namespace Tiles
         internal int HorizontalX;
         internal int VerticalY;
         
-        private Color _possibleAttackColor = new Color(255, 0, 0, 0.7f);
-        private Color _possibleHealColor = new Color(0, 0, 250, 0.7f);
-        private Color _possibleMoveColor = new Color(255, 247, 0, 0.7f);
+        private Color _possibleAttackColor = new Color(255, 0, 0, 0.3f);
+        private Color _possibleHealColor = new Color(0, 0, 200, 0.3f);
+        private Color _possibleMoveColor = new Color(255, 247, 0, 0.3f);
 
         public virtual void Init(int x, int y) { }
 

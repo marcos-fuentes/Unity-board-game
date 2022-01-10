@@ -19,6 +19,7 @@ MonoBehaviour:
   _possibleMove: {fileID: 7912733952786839589}
   _possibleMovementHighlight: {fileID: 8650967897100465541}
   _tileUnit: {fileID: 0}
+  position: {x: 0, y: 0}
   isAngelSpawnable: 0
   isOrcSpawnable: 0
   _baseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -120,6 +121,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4281672240542129208, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
       propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4328487058873734210, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4423254315621181286, guid: 1994e1ae1d94c4da7b21c35f8fa5f417, type: 3}

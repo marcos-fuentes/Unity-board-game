@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Map
+    uniqueID: 2668174851
+    locked: 0
+  - name: Grid
+    uniqueID: 3898817235
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Characters
+    uniqueID: 1361113351
+    locked: 0
+  - name: UI
+    uniqueID: 3119709693
     locked: 0
