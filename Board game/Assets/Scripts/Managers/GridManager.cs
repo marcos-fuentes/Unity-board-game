@@ -19,6 +19,8 @@ namespace Managers
         [SerializeField] private Transform _grid;
 
         private Dictionary<Vector2, BaseTile> _tiles;
+        private Dictionary<Vector2, BaseTile> _tilesOrcTowerAttackable;
+        private Dictionary<Vector2, BaseTile> _tilesAngelTowerAttackable;
         private List<BaseTile> tilesHighlighted = new List<BaseTile>();
 
 
@@ -33,8 +35,17 @@ namespace Managers
         internal void GenerateGrid()
         {
             _tiles = new Dictionary<Vector2, BaseTile>();
+            _tilesOrcTowerAttackable = new Dictionary<Vector2, BaseTile>();
+            _tilesAngelTowerAttackable = new Dictionary<Vector2, BaseTile>();
             foreach (var tile in _grid.transform.GetComponentsInChildren<BaseTile>()) {
                 _tiles[new Vector2(tile.position.x, tile.position.y)] = tile;
+                if (tile.isOrcTowerAttackable) {
+                    _tilesOrcTowerAttackable[new Vector2(tile.position.x, tile.position.y)] = tile;
+                }
+                else if (tile.isAngelTowerAttackable)
+                {
+                    _tilesAngelTowerAttackable[new Vector2(tile.position.x, tile.position.y)] = tile;
+                }
             }
             
             /***
@@ -80,16 +91,23 @@ namespace Managers
                 : _tiles.Where(tile => tile.Value.IsSpawnable() && tile.Value.isOrcSpawnable).OrderBy(t => Random.value)
                     .First().Value;
         }
+        
+        public Dictionary<Vector2, BaseTile> GetAttackableTilesByTower(Faction faction)
+        {
+            return faction == Angels
+                ? _tilesAngelTowerAttackable
+                : _tilesOrcTowerAttackable;
+        }
 
 
         internal void ShowPossibleMoves(BaseUnit baseUnit, BaseTile baseTile)
         {
             if (baseTile == null || baseUnit == null) return;
             
-            var leftMovementBlocked = false;
-            var rightMovementBlocked = false;
-            var upMovementBlocked = false;
-            var downMovementBlocked = false;
+            var leftMovementBlocked = baseTile.isBlockedLeft;
+            var rightMovementBlocked = baseTile.isBlockedRight;
+            var upMovementBlocked = baseTile.isBlockedUp;
+            var downMovementBlocked = baseTile.isBlockedDown;
             
             
             for (var movementLenght = 1; movementLenght <= baseUnit.movementArea; movementLenght++)
@@ -109,25 +127,26 @@ namespace Managers
                 if (movementLeft < 0) leftMovementBlocked = true;
                 if (!leftMovementBlocked) {
                     var leftTile = _tiles[new Vector2(movementLeft, baseTile.position.y)];
-                    leftMovementBlocked = !CheckPossibleActions(leftTile, baseUnit, isInsideAttackArea);    
+                    leftMovementBlocked = !CheckPossibleActions(leftTile, baseUnit, isInsideAttackArea) || leftTile.isBlockedLeft;
                 }
                 
                 if (movementRight > _width - 1) rightMovementBlocked = true;
                 if (!rightMovementBlocked) {
                     var rightTile = _tiles[new Vector2(movementRight, baseTile.position.y)];
-                    rightMovementBlocked = !CheckPossibleActions(rightTile, baseUnit, isInsideAttackArea);    
+                    rightMovementBlocked = !CheckPossibleActions(rightTile, baseUnit, isInsideAttackArea) || rightTile.isBlockedRight;
                 }
                 
                 if (movementUp < 0) upMovementBlocked = true;
                 if (!upMovementBlocked) {
                     var upperTile = _tiles[new Vector2(baseTile.position.x, movementUp)];
-                    upMovementBlocked = !CheckPossibleActions(upperTile, baseUnit, isInsideAttackArea);    
+                    upMovementBlocked = !CheckPossibleActions(upperTile, baseUnit, isInsideAttackArea) ||
+                                        upperTile.isBlockedUp;
                 }
                 
                 if (movementDown > _height - 1) downMovementBlocked = true;
                 if (!downMovementBlocked) {
                     var bottomTile = _tiles[new Vector2(baseTile.position.x, movementDown)];
-                    downMovementBlocked = !CheckPossibleActions(bottomTile, baseUnit, isInsideAttackArea);    
+                    downMovementBlocked = !CheckPossibleActions(bottomTile, baseUnit, isInsideAttackArea) || bottomTile.isBlockedDown;
                 }
             }
         }
@@ -146,6 +165,23 @@ namespace Managers
                 ) {
                     tile.SetTileAsPossibleMovementHeal();
                     tilesHighlighted.Add(tile);    
+                }
+                return false;
+            }
+            //Check if there's a tower to attack
+            if (tile.IsOcuppiedByATower()) {
+                Debug.Log("IS OCCUPIED BY A TOWER");
+                //When its magician we set the tile to be possible to heal
+                if (selectedUnit.unitClass == Class.OrcRepair 
+                    && tile.TowerCanBeRepaired()
+                    && selectedUnit.HealSystem.GetHealPoints() > 0
+                   ) {
+                    tile.SetTileAsPossibleMovementTowerRepaier();
+                    tilesHighlighted.Add(tile);    
+                } else if (isInsideAttackArea) {
+                    Debug.Log("IS TOWER ATTACKABLE");
+                    tile.SetTileAsPossibleMovementTowerAttack();
+                    tilesHighlighted.Add(tile);
                 }
                 return false;
             }

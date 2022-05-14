@@ -16,20 +16,33 @@ namespace Tiles
         [SerializeField] internal GameObject _notPossibleMoveHighLight;
         [SerializeField] internal GameObject _possibleMove;
         [SerializeField] internal GameObject _possibleMovementHighlight;
+        [SerializeField] internal Bullet _bullet;
         [SerializeField] internal BaseUnit _tileUnit;
+        [SerializeField] internal BaseTower _baseTower;
         [SerializeField] internal Vector2 position;
 
         private bool _canBeAttacked;
         private bool _canBeHealed;
+        private bool _canBeRepair;
+        private bool _towerCanBeAttacked;
         
         public bool isAngelSpawnable;
         public bool isOrcSpawnable;
+        public bool isOrcTowerAttackable;
+        public bool isAngelTowerAttackable;
+
+        public bool isBlockedLeft;
+        public bool isBlockedRight;
+        public bool isBlockedUp;
+        public bool isBlockedDown;
+        
         internal int HorizontalX;
         internal int VerticalY;
         
         private Color _possibleAttackColor = new Color(255, 0, 0, 0.3f);
         private Color _possibleHealColor = new Color(0, 0, 200, 0.3f);
         private Color _possibleMoveColor = new Color(255, 247, 0, 0.3f);
+        
 
         public virtual void Init(int x, int y) { }
 
@@ -48,9 +61,12 @@ namespace Tiles
             && _tileUnit.faction == selectedUnit.faction
             && _tileUnit.name != selectedUnit.name;
 
+        public bool IsOcuppiedByATower() => _baseTower != null;
+
         public bool IsTileOccupiedByUnitSelected(BaseUnit selectedUnit) => _tileUnit != null && _tileUnit.name == selectedUnit.name;
 
         public bool UnitCanBeHealed() => _tileUnit != null && _tileUnit.HealthSystem.GetHealthPercent() < 1;
+        public bool TowerCanBeRepaired() => _baseTower != null && _baseTower.HealthSystem.GetHealthPercent() < 1;
 
         private bool IsPossibleMove() => IsWalkable() && _possibleMove.activeSelf;
         public bool CanBeAttacked() => IsWalkable() && _tileUnit != null;
@@ -84,9 +100,22 @@ namespace Tiles
             SetTileAsActive(true);
         }
         
+        public void SetTileAsPossibleMovementTowerAttack() {
+            Debug.Log("POSSIBLE MOVEMENT TOWER ATTACK " + _towerCanBeAttacked);
+            _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleAttackColor;
+            _towerCanBeAttacked = true;
+            SetTileAsActive(true);
+        }
+        
         public void SetTileAsPossibleMovementHeal() {
             _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleHealColor;
             _canBeHealed = true;
+            SetTileAsActive(true);
+        }
+        
+        public void SetTileAsPossibleMovementTowerRepaier() {
+            _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleHealColor;
+            _canBeRepair = true;
             SetTileAsActive(true);
         }
         
@@ -100,6 +129,8 @@ namespace Tiles
             if (!isActive) {
                 _canBeAttacked = false;
                 _canBeHealed = false;
+                _towerCanBeAttacked = false;
+                _canBeRepair = false;
             }
         } 
         
@@ -112,7 +143,7 @@ namespace Tiles
         {
             if (unit.occupiedBaseTile != null) unit.occupiedBaseTile._tileUnit = null;
 
-            //Subtract 20 points to get the unit centered in vertical
+            //Subtract 30 points to get the unit centered in vertical
             var transformPosition = transform.position;
             transformPosition.y -= 30;
 
@@ -140,13 +171,19 @@ namespace Tiles
         private void ManageUnitTurn(BaseUnit unitSelected, Faction factionTurn) {
             if (unitSelected != null) {
                 //MOVE UNIT TO TILE
-                if (IsPossibleMove() && _tileUnit == null) MoveUnit(unitSelected);
+                if (IsPossibleMove() && _tileUnit == null && _baseTower == null) MoveUnit(unitSelected);
+                
 
                 //ATTACK
                 else if (IsPossibleMove() && _tileUnit != null && _tileUnit.faction != factionTurn) Attack(unitSelected);
                 
+                else if (IsPossibleMove() && _baseTower != null && _baseTower.faction != factionTurn) AttackToTower(unitSelected);
+                
+                
                 //HEAL
                 else if (IsPossibleMove() && _tileUnit != null && _tileUnit.faction == factionTurn) Heal(unitSelected);
+                
+                else if (IsPossibleMove() && _baseTower != null && _baseTower.faction == factionTurn) HealTower(unitSelected);
                 
                 
                 
@@ -166,7 +203,7 @@ namespace Tiles
             unit.AttackAnimation();
             var isEnemyDead = _tileUnit.DamageUnit(unit.attackDamage);
             if (isEnemyDead) {
-                Destroy(_tileUnit.gameObject);
+                Debug.Log("Enemy dead");
                 _tileUnit = null;
             }
 
@@ -175,10 +212,39 @@ namespace Tiles
             ChangeTurn(unit);
         }
         
+        private void AttackToTower(BaseUnit unit) {
+            Debug.Log("ATTACK TO TOWER " + _towerCanBeAttacked);
+            if (!_towerCanBeAttacked) return;
+            unit.AttackAnimation();
+            var isTowerDead = _baseTower.DamageTower(unit.unitClass == Class.OrcRepair? 2 : unit.attackDamage);
+            if (isTowerDead) {
+                Debug.Log("TowerDead");
+                _tileUnit = null;
+            }
+
+            GridManager.Instance.HideMoves();
+            GameManager.Instance.SubAttackNumber();
+            ChangeTurn(unit);
+        }
+
+        public void AttackFromTower() {
+            _bullet.AnimBullet(_tileUnit);
+        }
+        
         private void Heal(BaseUnit unit) {
             if (!_canBeHealed) return;
             unit.HealAnimation(); 
             _tileUnit.HealUnit(1);
+            unit.SubtractHealPoints(1);
+            
+            GridManager.Instance.HideMoves();
+            ChangeTurn(unit);
+        }
+        
+        private void HealTower(BaseUnit unit) {
+            if (!_canBeRepair) return;
+            unit.HealAnimation(); 
+            _baseTower.HealTower(1);
             unit.SubtractHealPoints(1);
             
             GridManager.Instance.HideMoves();

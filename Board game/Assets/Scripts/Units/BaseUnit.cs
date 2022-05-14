@@ -14,6 +14,7 @@ namespace Units {
         internal int unitMaxHealth = 3;
         internal HealthSystem HealthSystem;
         internal HealSystem HealSystem;
+        internal bool isAlive = true;
 
         public int attackDamage = 1;
 
@@ -39,8 +40,12 @@ namespace Units {
             HealthSystem.Damage(damage);
             if (HealthSystem.GetHealth() > 0) anim.Play("Hurt");
             else {
+                Debug.Log("Dying");
                 Dying(); 
                 isDead = true;
+                isAlive = false;
+                occupiedBaseTile._tileUnit = null;
+                occupiedBaseTile = null;
             }
             return isDead;
         }

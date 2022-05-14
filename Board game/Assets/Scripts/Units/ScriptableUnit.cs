@@ -15,5 +15,5 @@ public enum Faction
 
 public enum Class
 {
-    Magician, Assassin, Warrior
+    Magician, Assassin, Warrior, OrcRepair
 } 

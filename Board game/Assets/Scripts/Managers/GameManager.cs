@@ -16,6 +16,8 @@ namespace Managers
         private int _currentAttacks;
         private int _currentMoves;
         public bool isPaused = false;
+        [SerializeField] internal BaseTower _orcTower;
+        [SerializeField] internal BaseTower _angelTower;
         
 
         private void Awake() => Instance = this;
@@ -51,10 +53,12 @@ namespace Managers
                 case GameState.AngelsTurn:
                     ResetTurnValues();
                     UIManager.Instance.ChangeTurn(newState);
+                    CheckTowerAttack();
                     break;
                 case GameState.OrcsTurn:
                     ResetTurnValues();
                     UIManager.Instance.ChangeTurn(newState);
+                    CheckTowerAttack();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -65,6 +69,38 @@ namespace Managers
             _currentAttacks = maxAttackPerTurn;
             _currentMoves = maxMovesPerTurn;
             UIManager.Instance.UpdateUITurnInfo(_currentMoves, _currentAttacks);
+        }
+        
+        private void CheckTowerAttack()
+        {
+            var currentFactionTurn = gameState == GameState.AngelsTurn ? Faction.Angels : Faction.Orcs;
+            var attackableTilesByTower = GridManager.Instance.GetAttackableTilesByTower(currentFactionTurn);
+            
+            foreach (var tile in attackableTilesByTower) {
+                if (tile.Value._tileUnit!=null && tile.Value._tileUnit.faction != currentFactionTurn)
+                {
+                    if (currentFactionTurn == Faction.Orcs) {
+                        _orcTower.Attack();
+                    }
+                    else {
+                        _angelTower.Attack();
+                    }
+                    return;
+                }
+            }
+        }
+        
+        public void TowerAttack()
+        {
+            var currentFactionTurn = gameState == GameState.AngelsTurn ? Faction.Angels : Faction.Orcs;
+            var attackableTilesByTower = GridManager.Instance.GetAttackableTilesByTower(currentFactionTurn);
+            
+            foreach (var tile in attackableTilesByTower) {
+                if (tile.Value._tileUnit!=null && tile.Value._tileUnit.faction != currentFactionTurn)
+                {
+                    tile.Value.AttackFromTower();
+                }
+            }
         }
 
         public void SubAttackNumber() {
