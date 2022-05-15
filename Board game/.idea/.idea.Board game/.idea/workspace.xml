@@ -1,221 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Towers/BaseTower.cs" afterDir="false" />
+    <list default="true" id="f5082762-0b80-48e0-a0a7-d7e5fb20964c" name="Changes" comment="Improved movement, added base tower for each faction and created bullet animation">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Board game/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GridManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Base Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Base Tile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Desert Tile Bridge.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Desert Tile Bridge.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Desert Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Desert Tile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Grass Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/Grass Tile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/River Bridge Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Tiles/River Bridge Tile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Assassin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Magician.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Angels/Warrior.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Goblin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Ogre.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefab/Units/Orcs/Orc.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/BaseTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/BaseUnit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptableUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/ScriptableUnit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Fallen_Angels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Angels/Assasin/Vector Parts/Fallen_Angels.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Goblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Goblin/Vector Parts/Goblin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Ogre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Ogre/Vector Parts/Ogre.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Orc.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Orcs/Orc/Vecto Parts3/Orc.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/Preview_2D_RPG_Desert_Tileset.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/Preview_2D_RPG_Desert_Tileset.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/bg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/bg.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/building_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/decor_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/greenery_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_12.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_13.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_14.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_14.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_15.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_16.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_16.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_17.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_17.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_18.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_18.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/land_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_12.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_13.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_14.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_14.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_15.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_16.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_16.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_17.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_17.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_18.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_18.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_19.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_19.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_20.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_20.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_21.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_21.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_22.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_22.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_23.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_23.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_24.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_24.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_25.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_25.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_26.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_26.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/road_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_12.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/stones_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_12.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/desert sprite/tree_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/Preview_2D_RPG_Summer_Tileset.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/Preview_2D_RPG_Summer_Tileset.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/building_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_12.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_13.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_14.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_14.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_15.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_16.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_16.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/decor_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/greenery_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_12.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_13.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_14.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_14.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_15.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_16.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_16.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_17.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_17.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_18.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_18.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/land_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/river_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/river_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_12.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_13.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_14.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_14.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_15.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_16.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_16.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_17.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_17.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_18.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_18.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_19.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_19.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_20.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_20.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_21.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_21.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_22.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_22.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_23.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_23.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_24.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_24.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_25.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_25.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_26.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_26.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/road_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/stones_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_12.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_13.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_14.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_14.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_15.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Tiles/Sprites/mediaval sprites/tree_9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Towers/BaseTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Towers/BaseTower.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -351,6 +142,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.9.0/Editor/Collaborate/Components/TopBar.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.1.0/Unity.Mathematics/double4.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/marcos.fuentes/Documents/Uoc/Unity-board-game/Board game/Assets/Scripts/Managers/UIManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.9.0/Editor/Collaborate/Components/Menus/FloatingMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.1.0/Unity.Mathematics/quaternion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.9.0/Editor/PlasticSCM/UI/Images.cs" root0="SKIP_HIGHLIGHTING" />
@@ -484,7 +276,7 @@
       <workItem from="1652007361526" duration="5152000" />
       <workItem from="1652207548585" duration="631000" />
       <workItem from="1652375970859" duration="939000" />
-      <workItem from="1652452996926" duration="13649000" />
+      <workItem from="1652452996926" duration="18246000" />
     </task>
     <task id="LOCAL-00001" summary="Created Scripts for board and tiles">
       <created>1634922289188</created>
@@ -703,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649012842503</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Improved movement, added base tower for each faction and created bullet animation">
+      <created>1652549898338</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1652549898338</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -737,7 +536,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Scene fixes" />
     <MESSAGE value="Created Orcs and Angels spawned into the board" />
     <MESSAGE value="Added more units to spawn" />
     <MESSAGE value="Added turns for each unit, so after a move is done the turn is changed. Added a simple destroy option when unit is moved over an enemy" />
@@ -762,7 +560,8 @@
     <MESSAGE value="Re-created the grid with fixes tiles and refactored the code that was broken with the big change" />
     <MESSAGE value="Last map changes" />
     <MESSAGE value="Changes on camera" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes on camera" />
+    <MESSAGE value="Improved movement, added base tower for each faction and created bullet animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved movement, added base tower for each faction and created bullet animation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Managers;
 using Units;
 using UnityEngine;
@@ -10,9 +7,9 @@ public class BaseTower : MonoBehaviour {
     internal HealthSystem HealthSystem;
     internal HealSystem HealSystem;
     public HealthBar healthBar;
-    public HealBar healBar;
     public Faction faction;
     public bool isAlive = true;
+    float prevSpeed;
 
     
     //ANIMATIONS
@@ -23,8 +20,6 @@ public class BaseTower : MonoBehaviour {
     {
         HealthSystem = new HealthSystem(3);
         healthBar.Setup(HealthSystem);
-        HealSystem = new HealSystem(3);
-            healBar.Setup(HealSystem);
         anim = gameObject.GetComponent<Animator>();
         Debug.Log("BaseTowerCreated "+anim.name);
         IdleAnimation();
@@ -67,4 +62,25 @@ public class BaseTower : MonoBehaviour {
     }
     
     public void IdleAnimation() => anim.Play("Idle");
+
+    public void StopAnimations()
+    {
+        if (anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
+        
+        prevSpeed = anim.speed;
+        anim.speed = 0;
+    } 
+    
+    public void ContinueAnimations()
+    {
+        if (anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
+
+        anim.speed = prevSpeed;
+    }
 }

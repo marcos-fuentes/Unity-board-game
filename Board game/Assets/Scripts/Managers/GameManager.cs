@@ -136,7 +136,18 @@ namespace Managers
             GridManager.Instance.HideMoves();
         }
 
-        public void SetStatusPause(bool pauseObjectActiveSelf) {
+        public void SetStatusPause(bool pauseObjectActiveSelf)
+        {
+            if (pauseObjectActiveSelf){
+                _orcTower.StopAnimations();    
+                _angelTower.StopAnimations();    
+            }
+            else
+            {
+                _orcTower.ContinueAnimations();    
+                _angelTower.ContinueAnimations();    
+            }
+            
             isPaused = pauseObjectActiveSelf;
         }
     }
