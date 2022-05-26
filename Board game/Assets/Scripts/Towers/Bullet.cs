@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using Units;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ public class Bullet : MonoBehaviour
     public void BulletDropped()
     {
         if (_tileUnit!= null) {
+            ExplosionSound();
             _tileUnit.DamageUnit(1);
         }
     }
@@ -42,5 +44,7 @@ public class Bullet : MonoBehaviour
         }
 
     }
-    
+
+    public void ExplosionSound() => SoundManager.Instance.playExplosionSound();
+
 }

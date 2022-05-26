@@ -1,3 +1,4 @@
+using Managers;
 using Tiles;
 using UnityEngine;
 
@@ -38,10 +39,12 @@ namespace Units {
         public bool DamageUnit(int damage) {
             var isDead = false;
             HealthSystem.Damage(damage);
+            HitSound();
             if (HealthSystem.GetHealth() > 0) anim.Play("Hurt");
             else {
                 Debug.Log("Dying");
                 Dying(); 
+                DyingSound();
                 isDead = true;
                 isAlive = false;
                 occupiedBaseTile._tileUnit = null;
@@ -57,8 +60,15 @@ namespace Units {
         private void Dying() => anim.Play("Dying");
 
         public void HealUnit(int heal) => HealthSystem.Heal(heal);
+        public void ManaUnit(int heal) => HealSystem.AddHealPoints(heal);
         
         public void AttackAnimation() => anim.Play("Slashing");
         public void HealAnimation() => anim.Play("Throwing");
+
+        public void AttackSound() => SoundManager.Instance.playAttackSound();
+        public void HitSound() => SoundManager.Instance.playHurtSound();
+        public void HealSound() => SoundManager.Instance.playHealSound();
+        private void DyingSound() => SoundManager.Instance.playDeadSound();
+        public void WalkSound() => SoundManager.Instance.playWalkSound();
     }
 }

@@ -16,6 +16,8 @@ namespace Tiles
         [SerializeField] internal GameObject _notPossibleMoveHighLight;
         [SerializeField] internal GameObject _possibleMove;
         [SerializeField] internal GameObject _possibleMovementHighlight;
+        [SerializeField] internal GameObject _redPotion;
+        [SerializeField] internal GameObject _bluePotion;
         [SerializeField] internal Bullet _bullet;
         [SerializeField] internal BaseUnit _tileUnit;
         [SerializeField] internal BaseTower _baseTower;
@@ -66,6 +68,7 @@ namespace Tiles
         public bool IsTileOccupiedByUnitSelected(BaseUnit selectedUnit) => _tileUnit != null && _tileUnit.name == selectedUnit.name;
 
         public bool UnitCanBeHealed() => _tileUnit != null && _tileUnit.HealthSystem.GetHealthPercent() < 1;
+        public bool UnitCanRecoverMana() => _tileUnit != null && _tileUnit.HealSystem!=null &&_tileUnit.HealSystem.GetHealthPercent() < 1;
         public bool TowerCanBeRepaired() => _baseTower != null && _baseTower.HealthSystem.GetHealthPercent() < 1;
 
         private bool IsPossibleMove() => IsWalkable() && _possibleMove.activeSelf;
@@ -139,7 +142,7 @@ namespace Tiles
         /**
         * Assign a Unit to a Tile
         */
-        public void SetUnitToTile(BaseUnit unit)
+        public void SetUnitToTile(BaseUnit unit, bool spawn = false)
         {
             if (unit.occupiedBaseTile != null) unit.occupiedBaseTile._tileUnit = null;
 
@@ -150,8 +153,32 @@ namespace Tiles
             unit.transform.position = transformPosition;
             _tileUnit = unit;
             unit.occupiedBaseTile = this;
+            if (!spawn)
+            { 
+                unit.WalkSound();
+                CheckPotions();
+            }
         }
-        
+
+        internal void CheckPotions()
+        {
+            if (_redPotion != null && UnitCanBeHealed())
+            {
+                _tileUnit.HealAnimation();
+                _tileUnit.HealUnit(1);
+                _redPotion.SetActive(false);
+                _redPotion = null;
+            }
+
+            if (_bluePotion != null && UnitCanRecoverMana())
+            {
+                _tileUnit.HealAnimation();
+                _tileUnit.ManaUnit(1);
+                _bluePotion.SetActive(false);
+                _bluePotion = null;
+            }
+        }
+
         /**
          * Move Unit to another Tile
          */
@@ -201,6 +228,7 @@ namespace Tiles
         private void Attack(BaseUnit unit) {
             if (!_canBeAttacked) return;
             unit.AttackAnimation();
+            unit.AttackSound();
             var isEnemyDead = _tileUnit.DamageUnit(unit.attackDamage);
             if (isEnemyDead) {
                 Debug.Log("Enemy dead");
@@ -216,6 +244,7 @@ namespace Tiles
             Debug.Log("ATTACK TO TOWER " + _towerCanBeAttacked);
             if (!_towerCanBeAttacked) return;
             unit.AttackAnimation();
+            unit.AttackSound();
             var isTowerDead = _baseTower.DamageTower(unit.unitClass == Class.OrcRepair? 2 : unit.attackDamage);
             if (isTowerDead) {
                 Debug.Log("TowerDead");
@@ -234,6 +263,7 @@ namespace Tiles
         private void Heal(BaseUnit unit) {
             if (!_canBeHealed) return;
             unit.HealAnimation(); 
+            unit.HealSound();
             _tileUnit.HealUnit(1);
             unit.SubtractHealPoints(1);
             

@@ -47,7 +47,7 @@ namespace Managers
         private static void SpawnUnit(ScriptableUnit unit) {
             var spawnedUnit = Instantiate(unit.UnitPrefab);
             var randomSpawnTile = GridManager.Instance.GetSpawnTile(unit.Faction);
-            randomSpawnTile.SetUnitToTile(spawnedUnit);
+            randomSpawnTile.SetUnitToTile(spawnedUnit,  true);
         }
 
         /**

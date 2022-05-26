@@ -21,6 +21,7 @@ namespace Managers
         private Dictionary<Vector2, BaseTile> _tiles;
         private Dictionary<Vector2, BaseTile> _tilesOrcTowerAttackable;
         private Dictionary<Vector2, BaseTile> _tilesAngelTowerAttackable;
+        private Dictionary<Vector2, BaseTile> _tilesWithPotion;
         private List<BaseTile> tilesHighlighted = new List<BaseTile>();
 
 
@@ -37,6 +38,7 @@ namespace Managers
             _tiles = new Dictionary<Vector2, BaseTile>();
             _tilesOrcTowerAttackable = new Dictionary<Vector2, BaseTile>();
             _tilesAngelTowerAttackable = new Dictionary<Vector2, BaseTile>();
+            _tilesWithPotion = new Dictionary<Vector2, BaseTile>();
             foreach (var tile in _grid.transform.GetComponentsInChildren<BaseTile>()) {
                 _tiles[new Vector2(tile.position.x, tile.position.y)] = tile;
                 if (tile.isOrcTowerAttackable) {
@@ -46,40 +48,28 @@ namespace Managers
                 {
                     _tilesAngelTowerAttackable[new Vector2(tile.position.x, tile.position.y)] = tile;
                 }
-            }
-            
-            /***
-            for (int x = 0; x < _width; x++)
-            {
-                for (int y = 0; y < _height; y++)
+
+                if (tile._redPotion !=null || tile._bluePotion !=null)
                 {
-                    var randomTile = Random.Range(0, 10) == 3 ? horizontalBaseTile : grassBaseTile;
-                    var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
-
-                    spawnedTile.name = $"Tile {x} {y}";
-                    spawnedTile.HorizontalX = x;
-                    spawnedTile.VerticalY = y;
-                    spawnedTile.Init(x,y);
-                    AssignTileSpawnable(spawnedTile, y);
-
-                    _tiles[new Vector2(x, y)] = spawnedTile;
+                    _tilesWithPotion[new Vector2(tile.position.x, tile.position.y)] = tile;
                 }
             }
-
-            //_cam.transform.position = new Vector3((float) _width / 2 - 0.5f, (float) _height / 2 - 0.5f, -30);
-            */
+            
         }
 
-        /**
-     * Assigns whether a tile is spawnable or not
-     */
-        private void AssignTileSpawnable(BaseTile spawnedBaseTile, int y)
+        internal void CheckIfUnitsCanBeHealed(Faction faction)
         {
-            //Set tiles as spawnable when they are below the height (16 / 4 = 4 ) OR when they are the above height ( 16 - 16 / 4 = 12)
-            //  spawnedBaseTile.isAngelSpawnable = y < _height / 4 && spawnedBaseTile.IsWalkable();
-            // spawnedBaseTile.isOrcSpawnable = y > _height - _height / 4 && spawnedBaseTile.IsWalkable();
+            foreach (var tile in _tilesWithPotion)
+            {
+                Debug.Log("TILE WITH POTIONS:"+ tile.Value);
+                if (tile.Value._tileUnit != null && tile.Value._tileUnit.faction == faction)
+                {
+                    tile.Value.CheckPotions();
+                }
+            }
         }
 
+    
         /**
      * Gets a random spawnable tile that has to be spawnable and walkable
      */

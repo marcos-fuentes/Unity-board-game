@@ -53,11 +53,13 @@ namespace Managers
                 case GameState.AngelsTurn:
                     ResetTurnValues();
                     UIManager.Instance.ChangeTurn(newState);
+                    GridManager.Instance.CheckIfUnitsCanBeHealed(Faction.Angels);
                     CheckTowerAttack();
                     break;
                 case GameState.OrcsTurn:
                     ResetTurnValues();
                     UIManager.Instance.ChangeTurn(newState);
+                    GridManager.Instance.CheckIfUnitsCanBeHealed(Faction.Orcs);
                     CheckTowerAttack();
                     break;
                 default:

@@ -1,6 +1,7 @@
 using System;
 using Units;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Managers
@@ -60,7 +61,7 @@ namespace Managers
 
         private void OnQuitClicked()
         {
-            Application.Quit();
+            SceneManager.LoadScene("MainMenu");
         }
 
         private void OnHelpButttonClicked()
