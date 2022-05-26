@@ -16,11 +16,15 @@ namespace Managers
         [SerializeField] private Button _helpPauseButton;
         [SerializeField] private Button _quitPuuseButton;
         [SerializeField] private GameObject _helpMenuObject;
+        [SerializeField] private GameObject _optionsMenuObject;
         [SerializeField] private Button _helpBackButton;
+        [SerializeField] private Button _optionsButton;
+        [SerializeField] private Button _optionsBackButton;
 
-        [SerializeField] private Button _skipTurnButton;
+        [SerializeField] private Button _skipTurnButton, _endButtonExit, _endButtonRestart;
         [SerializeField] private GameObject _tileObject, _tileUnitObject;
         [SerializeField] private Image _turnImage, selectedUnitImage;
+        public GameObject _theEnd, _angelsWon, _orcsWon;
 
         [SerializeField] private Text _turnText,
             _selectedUnitNameText,
@@ -32,6 +36,7 @@ namespace Managers
         [SerializeField] private Sprite orcImage, ogreImage, goblinImage, angelImage, magicianImage, warriorImage;
         [SerializeField] private GameObject _countDownObject, _pauseObject;
         [SerializeField] private GameObject _selectedUnitContainer;
+        
 
         public float timePerTurn = 30.5f;
         public float timeRemaining = 30.5f;
@@ -55,14 +60,15 @@ namespace Managers
             _closePauseButton.onClick.AddListener(OnPauseClick);
             _resumePauseButton.onClick.AddListener(OnPauseClick);
             _helpPauseButton.onClick.AddListener(OnHelpButttonClicked);
-            _quitPuuseButton.onClick.AddListener(OnQuitClicked);
+            _quitPuuseButton.onClick.AddListener(OnButtonExitPressed);
             _helpBackButton.onClick.AddListener(OnBackHelpButtonClicked);
+            _optionsButton.onClick.AddListener(OnOptionsButtonPressed);
+            _optionsBackButton.onClick.AddListener(OnOptionsBackButtonPressed);
+            
+            _endButtonRestart.onClick.AddListener(OnButtonRestartPressed);
+            _endButtonExit.onClick.AddListener(OnButtonExitPressed);
         }
-
-        private void OnQuitClicked()
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
+        
 
         private void OnHelpButttonClicked()
         { 
@@ -73,8 +79,13 @@ namespace Managers
         { 
             _helpMenuObject.SetActive(false);
         }
-
-
+        
+        private void OnOptionsBackButtonPressed() => _optionsMenuObject.SetActive(false);
+        private void OnOptionsButtonPressed() => _optionsMenuObject.SetActive(true);
+        
+        private void OnButtonExitPressed() => GameManager.Instance.GoToMainMenu();
+        private void OnButtonRestartPressed() => GameManager.Instance.GoToGameScene();
+        
         private void OnPauseClick()
         {
             _helpMenuObject.SetActive(false);
@@ -156,6 +167,16 @@ namespace Managers
                 _selectedUnitContainer.SetActive(false);
             }
             //( _selectedUnitObject.GetComponentInChildren<Text>().text = unit.unitName;
+        }
+
+        public void FinishGame(Faction faction)
+        {
+            _orcsWon.SetActive(faction == Faction.Orcs);
+            _angelsWon.SetActive(faction == Faction.Angels);
+            GameManager.Instance.SetStatusPause(true);
+            SoundManager.Instance.PlayVictoryMusic();
+            
+            _theEnd.SetActive(true);
         }
 
         private void Update()

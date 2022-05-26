@@ -25,9 +25,14 @@ public class Bullet : MonoBehaviour
 
     public void BulletDropped()
     {
-        if (_tileUnit!= null) {
+        if (_tileUnit!= null)
+        {
             ExplosionSound();
-            _tileUnit.DamageUnit(1);
+            var enemyDied = _tileUnit.DamageUnit(1);
+            if (enemyDied) {
+                Debug.Log("Enemy dead");
+                GameManager.Instance.UnityDied(_tileUnit.faction);
+            }
         }
     }
     

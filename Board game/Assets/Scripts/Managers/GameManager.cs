@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Managers
 {
@@ -12,23 +13,25 @@ namespace Managers
         public GameState gameState;
         private int maxAttackPerTurn = 1;
         private int maxMovesPerTurn = 2;
+        private int orcsAlive = 3;
+        private int angelsAlive = 3;
 
         private int _currentAttacks;
         private int _currentMoves;
         public bool isPaused = false;
         [SerializeField] internal BaseTower _orcTower;
         [SerializeField] internal BaseTower _angelTower;
-        
+
 
         private void Awake() => Instance = this;
 
         public bool IsTurnOver() => !AreMovementsLeft() || !AreAttacksLeft();
         public bool AreMovementsLeft() => _currentMoves > 0;
         public bool AreAttacksLeft() => _currentAttacks > 0;
-    
 
-        private void Start() => ChangeState(GameState.GenerateGrid); 
-    
+
+        private void Start() => ChangeState(GameState.GenerateGrid);
+
         /**
      * Changes the state of the game.
      */
@@ -66,60 +69,69 @@ namespace Managers
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
             }
         }
-         
-        private void ResetTurnValues(){
+
+        private void ResetTurnValues()
+        {
             _currentAttacks = maxAttackPerTurn;
             _currentMoves = maxMovesPerTurn;
             UIManager.Instance.UpdateUITurnInfo(_currentMoves, _currentAttacks);
         }
-        
+
         private void CheckTowerAttack()
         {
             var currentFactionTurn = gameState == GameState.AngelsTurn ? Faction.Angels : Faction.Orcs;
             var attackableTilesByTower = GridManager.Instance.GetAttackableTilesByTower(currentFactionTurn);
-            
-            foreach (var tile in attackableTilesByTower) {
-                if (tile.Value._tileUnit!=null && tile.Value._tileUnit.faction != currentFactionTurn)
+
+            foreach (var tile in attackableTilesByTower)
+            {
+                if (tile.Value._tileUnit != null && tile.Value._tileUnit.faction != currentFactionTurn)
                 {
-                    if (currentFactionTurn == Faction.Orcs) {
+                    if (currentFactionTurn == Faction.Orcs)
+                    {
                         _orcTower.Attack();
                     }
-                    else {
+                    else
+                    {
                         _angelTower.Attack();
                     }
+
                     return;
                 }
             }
         }
-        
+
         public void TowerAttack()
         {
             var currentFactionTurn = gameState == GameState.AngelsTurn ? Faction.Angels : Faction.Orcs;
             var attackableTilesByTower = GridManager.Instance.GetAttackableTilesByTower(currentFactionTurn);
-            
-            foreach (var tile in attackableTilesByTower) {
-                if (tile.Value._tileUnit!=null && tile.Value._tileUnit.faction != currentFactionTurn)
+
+            foreach (var tile in attackableTilesByTower)
+            {
+                if (tile.Value._tileUnit != null && tile.Value._tileUnit.faction != currentFactionTurn)
                 {
                     tile.Value.AttackFromTower();
                 }
             }
         }
 
-        public void SubAttackNumber() {
+        public void SubAttackNumber()
+        {
             _currentAttacks--;
             if (_currentAttacks < 0) _currentAttacks = 0;
             UIManager.Instance.UpdateUITurnInfo(_currentMoves, _currentAttacks);
         }
-        
-        public void SubMoveNumber() {
+
+        public void SubMoveNumber()
+        {
             _currentMoves--;
             if (_currentMoves < 0) _currentMoves = 0;
             UIManager.Instance.UpdateUITurnInfo(_currentMoves, _currentAttacks);
         }
 
-        public void SkipTurn() {
-            
-            switch (gameState) {
+        public void SkipTurn()
+        {
+            switch (gameState)
+            {
                 case GameState.AngelsTurn:
                     ClearMove();
                     ChangeState(GameState.OrcsTurn);
@@ -131,29 +143,47 @@ namespace Managers
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
         }
-        public static void ClearMove() {
+
+        public static void ClearMove()
+        {
             UnitManager.Instance.SetSelectedUnit(null);
             GridManager.Instance.HideMoves();
         }
 
         public void SetStatusPause(bool pauseObjectActiveSelf)
         {
-            if (pauseObjectActiveSelf){
-                _orcTower.StopAnimations();    
-                _angelTower.StopAnimations();    
+            if (pauseObjectActiveSelf)
+            {
+                _orcTower.StopAnimations();
+                _angelTower.StopAnimations();
             }
             else
             {
-                _orcTower.ContinueAnimations();    
-                _angelTower.ContinueAnimations();    
+                _orcTower.ContinueAnimations();
+                _angelTower.ContinueAnimations();
             }
-            
+
             isPaused = pauseObjectActiveSelf;
         }
+
+        public void CheckIfGameIsFinished()
+        {
+            if (angelsAlive <= 0) UIManager.Instance.FinishGame(Faction.Orcs);
+            else if (orcsAlive <= 0) UIManager.Instance.FinishGame(Faction.Angels);
+        }
+
+        public void UnityDied(Faction faction)
+        {
+            if (faction == Faction.Orcs) orcsAlive--;
+            else angelsAlive--;
+            CheckIfGameIsFinished();
+        }
+
+        public void GoToMainMenu() => SceneManager.LoadScene("MainMenu");
+        public void GoToGameScene() => SceneManager.LoadScene("SampleScene");
     }
-   
+
     public enum GameState
     {
         GenerateGrid,

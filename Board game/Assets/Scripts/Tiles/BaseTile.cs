@@ -229,14 +229,19 @@ namespace Tiles
             if (!_canBeAttacked) return;
             unit.AttackAnimation();
             unit.AttackSound();
+            var tileUnitFaction = _tileUnit.faction;
             var isEnemyDead = _tileUnit.DamageUnit(unit.attackDamage);
+            
             if (isEnemyDead) {
                 Debug.Log("Enemy dead");
+                GridManager.Instance.HideMoves(); 
+                GameManager.Instance.UnityDied(tileUnitFaction);
                 _tileUnit = null;
             }
 
-            GridManager.Instance.HideMoves();
+            GridManager.Instance.HideMoves(); 
             GameManager.Instance.SubAttackNumber();
+            
             ChangeTurn(unit);
         }
         
@@ -248,7 +253,7 @@ namespace Tiles
             var isTowerDead = _baseTower.DamageTower(unit.unitClass == Class.OrcRepair? 2 : unit.attackDamage);
             if (isTowerDead) {
                 Debug.Log("TowerDead");
-                _tileUnit = null;
+                UIManager.Instance.FinishGame(unit.faction);
             }
 
             GridManager.Instance.HideMoves();

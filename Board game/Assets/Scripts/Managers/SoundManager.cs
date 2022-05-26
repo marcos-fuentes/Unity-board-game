@@ -14,12 +14,13 @@ namespace Managers
         private AudioSource backgroundMusic;
 
         //Sound effects
-        private AudioSource attackSoundEffect;
-        private AudioSource hurtSoundEffect;
-        private AudioSource walkSoundEffect;
-        private AudioSource deadSoundEffect;
-        private AudioSource explosionSoundEffect;
-        private AudioSource healSoundEffect;
+        public AudioSource attackSoundEffect;
+        public AudioSource hurtSoundEffect;
+        public AudioSource walkSoundEffect;
+        public AudioSource deadSoundEffect;
+        public AudioSource explosionSoundEffect;
+        public AudioSource healSoundEffect;
+        public AudioSource victoySoundMusic;
 
         public Slider musicSlider;
         public Slider effectSlider;
@@ -37,24 +38,25 @@ namespace Managers
         {
             ObjectMusic = GameObject.FindWithTag("GameMusic");
             backgroundMusic = ObjectMusic.GetComponent<AudioSource>();
-             
-            
-            ChangeAudioSourceVolume(backgroundMusic, PlayerPrefs.GetFloat(BACKGROUND_VOLUME));
-            ChangeAudioSourceVolume(attackSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME));
-            ChangeAudioSourceVolume(hurtSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME));
-            ChangeAudioSourceVolume(walkSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME));
-            ChangeAudioSourceVolume(deadSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME));
-            ChangeAudioSourceVolume(explosionSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME));
-            ChangeAudioSourceVolume(healSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME));
 
-            musicSlider.value = MusicVolume;
-            effectSlider.value = EffectsVolume;
+
+            ChangeAudioSourceVolume(backgroundMusic, PlayerPrefs.GetFloat(BACKGROUND_VOLUME, MusicVolume));
+            ChangeAudioSourceVolume(victoySoundMusic, PlayerPrefs.GetFloat(BACKGROUND_VOLUME, MusicVolume));
+            ChangeAudioSourceVolume(attackSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME, EffectsVolume));
+            ChangeAudioSourceVolume(hurtSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME, EffectsVolume));
+            ChangeAudioSourceVolume(walkSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME, EffectsVolume));
+            ChangeAudioSourceVolume(deadSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME, EffectsVolume));
+            ChangeAudioSourceVolume(explosionSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME, EffectsVolume));
+            ChangeAudioSourceVolume(healSoundEffect, PlayerPrefs.GetFloat(EFFECT_VOLUME, EffectsVolume));
+
+            musicSlider.value = PlayerPrefs.GetFloat(BACKGROUND_VOLUME, MusicVolume);
+            effectSlider.value = PlayerPrefs.GetFloat(EFFECT_VOLUME, EffectsVolume);
 
             musicSlider.onValueChanged.AddListener(delegate { MusicVolumeChanged(); });
             effectSlider.onValueChanged.AddListener(delegate { EffectVolumeChanged(); });
         }
 
-        
+
         public void setBackgroundVolume(float volume)
         {
             if (backgroundMusic != null) backgroundMusic.volume = volume;
@@ -135,14 +137,16 @@ namespace Managers
         {
             PlayerPrefs.SetFloat(BACKGROUND_VOLUME, musicSlider.value);
             ChangeAudioSourceVolume(backgroundMusic, musicSlider.value);
+            ChangeAudioSourceVolume(victoySoundMusic, musicSlider.value);
         }
 
         public void EffectVolumeChanged()
         {
             PlayerPrefs.SetFloat(EFFECT_VOLUME, musicSlider.value);
-            
+
             ChangeAudioSourceVolume(attackSoundEffect, effectSlider.value);
             ChangeAudioSourceVolume(hurtSoundEffect, effectSlider.value);
+            ChangeAudioSourceVolume(walkSoundEffect, effectSlider.value);
             ChangeAudioSourceVolume(walkSoundEffect, effectSlider.value);
             ChangeAudioSourceVolume(deadSoundEffect, effectSlider.value);
             ChangeAudioSourceVolume(explosionSoundEffect, effectSlider.value);
@@ -152,6 +156,16 @@ namespace Managers
         private void ChangeAudioSourceVolume(AudioSource audioSource, float volume)
         {
             if (audioSource != null) audioSource.volume = volume;
+        }
+
+        public void PlayVictoryMusic()
+        {
+            if (victoySoundMusic != null)
+            {
+                backgroundMusic.Stop();
+                victoySoundMusic.Play();
+            }
+            else Debug.Log("Null walk sound");
         }
     }
 }
