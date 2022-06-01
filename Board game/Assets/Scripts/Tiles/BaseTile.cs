@@ -3,6 +3,7 @@ using Units;
 using UnityEngine;
 using static Faction;
 using static Managers.GameState;
+
 namespace Tiles
 {
     /**
@@ -27,7 +28,7 @@ namespace Tiles
         private bool _canBeHealed;
         private bool _canBeRepair;
         private bool _towerCanBeAttacked;
-        
+
         public bool isAngelSpawnable;
         public bool isOrcSpawnable;
         public bool isOrcTowerAttackable;
@@ -37,107 +38,127 @@ namespace Tiles
         public bool isBlockedRight;
         public bool isBlockedUp;
         public bool isBlockedDown;
-        
+
         internal int HorizontalX;
         internal int VerticalY;
-        
+
         private Color _possibleAttackColor = new Color(255, 0, 0, 0.3f);
         private Color _possibleHealColor = new Color(0, 0, 200, 0.3f);
         private Color _possibleMoveColor = new Color(255, 247, 0, 0.3f);
-        
 
-        public virtual void Init(int x, int y) { }
+
+        public virtual void Init(int x, int y)
+        {
+        }
 
         public bool IsWalkable()
         {
             return this is IWalkable iWalkable && iWalkable.Walkable();
         }
-        
+
         public bool IsSpawnable()
         {
             return this is IWalkable iWalkable && iWalkable.Spawnable();
         }
 
         public bool IsOccupiedByATeamUnit(BaseUnit selectedUnit) =>
-            _tileUnit != null 
+            _tileUnit != null
             && _tileUnit.faction == selectedUnit.faction
             && _tileUnit.name != selectedUnit.name;
 
         public bool IsOcuppiedByATower() => _baseTower != null;
 
-        public bool IsTileOccupiedByUnitSelected(BaseUnit selectedUnit) => _tileUnit != null && _tileUnit.name == selectedUnit.name;
+        public bool IsTileOccupiedByUnitSelected(BaseUnit selectedUnit) =>
+            _tileUnit != null && _tileUnit.name == selectedUnit.name;
 
         public bool UnitCanBeHealed() => _tileUnit != null && _tileUnit.HealthSystem.GetHealthPercent() < 1;
-        public bool UnitCanRecoverMana() => _tileUnit != null && _tileUnit.HealSystem!=null &&_tileUnit.HealSystem.GetHealthPercent() < 1;
-        public bool TowerCanBeRepaired() => _baseTower != null && _baseTower.HealthSystem.GetHealthPercent() < 1;
+
+        public bool UnitHasMaxHealPoints() => _tileUnit != null && _tileUnit.HealthSystem.GetHealthPercent() >= 1.0f;
+
+        public bool UnitCanRecoverMana() => _tileUnit != null && _tileUnit.HealSystem != null &&
+                                            _tileUnit.HealSystem.GetHealthPercent() < 1;
+
+        public bool UnitHasMaxManaPoints() => _tileUnit != null && _tileUnit.HealSystem != null &&
+                                              _tileUnit.HealSystem.GetHealthPercent() >= 1.0f;
+
+        public bool TowerCanBeRepaired(Faction unitFaction) => _baseTower != null && _baseTower.HealthSystem.GetHealthPercent() < 1 && _baseTower.faction == unitFaction;
 
         private bool IsPossibleMove() => IsWalkable() && _possibleMove.activeSelf;
         public bool CanBeAttacked() => IsWalkable() && _tileUnit != null;
-        
+
 
         private void SetHighLightedTile()
         {
             //If it's not walkable is showing a red highlight instead of a white one
-            
+
             //Is RED when it's not walkable
             // 1 - is not possible move
             // 2 - Unit is selected to move
             if (UnitManager.Instance.selectedUnit != null
                 && !IsPossibleMove()
-                && UnitManager.Instance.selectedUnit != _tileUnit) {
+                && UnitManager.Instance.selectedUnit != _tileUnit)
+            {
                 _notPossibleMoveHighLight.SetActive(true);
             }
-            else {
+            else
+            {
                 _highlight.SetActive(true);
             }
         }
 
-        private void ClearMouseHighLights() {
+        private void ClearMouseHighLights()
+        {
             _highlight.SetActive(false);
             _notPossibleMoveHighLight.SetActive(false);
         }
-        
-        public void SetTileAsPossibleMovementAttack() {
+
+        public void SetTileAsPossibleMovementAttack()
+        {
             _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleAttackColor;
             _canBeAttacked = true;
             SetTileAsActive(true);
         }
-        
-        public void SetTileAsPossibleMovementTowerAttack() {
+
+        public void SetTileAsPossibleMovementTowerAttack()
+        {
             Debug.Log("POSSIBLE MOVEMENT TOWER ATTACK " + _towerCanBeAttacked);
             _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleAttackColor;
             _towerCanBeAttacked = true;
             SetTileAsActive(true);
         }
-        
-        public void SetTileAsPossibleMovementHeal() {
+
+        public void SetTileAsPossibleMovementHeal()
+        {
             _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleHealColor;
             _canBeHealed = true;
             SetTileAsActive(true);
         }
-        
-        public void SetTileAsPossibleMovementTowerRepaier() {
+
+        public void SetTileAsPossibleMovementTowerRepaier()
+        {
             _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleHealColor;
             _canBeRepair = true;
             SetTileAsActive(true);
         }
-        
-        public void SetTileAsPossibleMovement() {
+
+        public void SetTileAsPossibleMovement()
+        {
             _possibleMovementHighlight.GetComponent<SpriteRenderer>().color = _possibleMoveColor;
             SetTileAsActive(true);
         }
 
-        public void SetTileAsActive(bool isActive) {
+        public void SetTileAsActive(bool isActive)
+        {
             _possibleMove.SetActive(isActive);
-            if (!isActive) {
+            if (!isActive)
+            {
                 _canBeAttacked = false;
                 _canBeHealed = false;
                 _towerCanBeAttacked = false;
                 _canBeRepair = false;
             }
-        } 
-        
-        
+        }
+
 
         /**
         * Assign a Unit to a Tile
@@ -154,7 +175,7 @@ namespace Tiles
             _tileUnit = unit;
             unit.occupiedBaseTile = this;
             if (!spawn)
-            { 
+            {
                 unit.WalkSound();
                 CheckPotions();
             }
@@ -162,27 +183,43 @@ namespace Tiles
 
         internal void CheckPotions()
         {
-            if (_redPotion != null && UnitCanBeHealed())
+            if (_redPotion != null)
             {
-                _tileUnit.HealAnimation();
-                _tileUnit.HealUnit(1);
-                _redPotion.SetActive(false);
-                _redPotion = null;
+                if (UnitHasMaxHealPoints())
+                {
+                    _tileUnit.MaxOutAnimation();
+                }
+                else if (UnitCanBeHealed())
+                {
+                    _tileUnit.HealAnimation();
+
+                    _tileUnit.HealUnit(1);
+                    _redPotion.SetActive(false);
+                    _redPotion = null;
+                }
             }
 
-            if (_bluePotion != null && UnitCanRecoverMana())
+            if (_bluePotion != null)
             {
-                _tileUnit.HealAnimation();
-                _tileUnit.ManaUnit(1);
-                _bluePotion.SetActive(false);
-                _bluePotion = null;
+                if (UnitHasMaxManaPoints())
+                {
+                    _tileUnit.MaxOutAnimation();
+                }
+                else if (UnitCanRecoverMana())
+                {
+                    _tileUnit.ManaAnimation();
+                    _tileUnit.ManaUnit(1);
+                    _bluePotion.SetActive(false);
+                    _bluePotion = null;
+                }
             }
         }
 
         /**
          * Move Unit to another Tile
          */
-        private void MoveUnit(BaseUnit unitToMove) {
+        private void MoveUnit(BaseUnit unitToMove)
+        {
             if (!GameManager.Instance.AreMovementsLeft()) return;
             if (unitToMove == null || !IsPossibleMove()) return;
             SetUnitToTile(unitToMove);
@@ -195,29 +232,31 @@ namespace Tiles
      * unit: pass the unit that you want to manage
      * factionTurn: the faction of the turn you are using
      */
-        private void ManageUnitTurn(BaseUnit unitSelected, Faction factionTurn) {
-            if (unitSelected != null) {
+        private void ManageUnitTurn(BaseUnit unitSelected, Faction factionTurn)
+        {
+            if (unitSelected != null)
+            {
                 //MOVE UNIT TO TILE
                 if (IsPossibleMove() && _tileUnit == null && _baseTower == null) MoveUnit(unitSelected);
-                
 
                 //ATTACK
-                else if (IsPossibleMove() && _tileUnit != null && _tileUnit.faction != factionTurn) Attack(unitSelected);
-                
-                else if (IsPossibleMove() && _baseTower != null && _baseTower.faction != factionTurn) AttackToTower(unitSelected);
-                
-                
+                else if (IsPossibleMove() && _tileUnit != null && _tileUnit.faction != factionTurn)
+                    Attack(unitSelected);
+
+                else if (IsPossibleMove() && _baseTower != null && _baseTower.faction != factionTurn)
+                    AttackToTower(unitSelected);
+
                 //HEAL
                 else if (IsPossibleMove() && _tileUnit != null && _tileUnit.faction == factionTurn) Heal(unitSelected);
-                
-                else if (IsPossibleMove() && _baseTower != null && _baseTower.faction == factionTurn) HealTower(unitSelected);
-                
-                
-                
+
+                else if (IsPossibleMove() && _baseTower != null && _baseTower.faction == factionTurn)
+                    HealTower(unitSelected);
+
                 //CLEAR MOVE
                 else GameManager.ClearMove();
-
-            } else {
+            }
+            else
+            {
                 //SELECT UNIT TO MOVE
                 if (_tileUnit == null || _tileUnit.faction != factionTurn) return;
                 UnitManager.Instance.SetSelectedUnit(_tileUnit);
@@ -225,33 +264,40 @@ namespace Tiles
             }
         }
 
-        private void Attack(BaseUnit unit) {
+        private void Attack(BaseUnit unit)
+        {
             if (!_canBeAttacked) return;
             unit.AttackAnimation();
             unit.AttackSound();
             var tileUnitFaction = _tileUnit.faction;
             var isEnemyDead = _tileUnit.DamageUnit(unit.attackDamage);
-            
-            if (isEnemyDead) {
+
+            if (isEnemyDead)
+            {
                 Debug.Log("Enemy dead");
-                GridManager.Instance.HideMoves(); 
+                GridManager.Instance.HideMoves();
                 GameManager.Instance.UnityDied(tileUnitFaction);
                 _tileUnit = null;
             }
 
-            GridManager.Instance.HideMoves(); 
+            GridManager.Instance.HideMoves();
             GameManager.Instance.SubAttackNumber();
-            
+
             ChangeTurn(unit);
         }
-        
-        private void AttackToTower(BaseUnit unit) {
+
+        private void AttackToTower(BaseUnit unit)
+        {
             Debug.Log("ATTACK TO TOWER " + _towerCanBeAttacked);
             if (!_towerCanBeAttacked) return;
             unit.AttackAnimation();
             unit.AttackSound();
-            var isTowerDead = _baseTower.DamageTower(unit.unitClass == Class.OrcRepair? 2 : unit.attackDamage);
-            if (isTowerDead) {
+            var isTowerDead = _baseTower.DamageTower(unit.unitClass == Class.Warlock ? 2 : unit.attackDamage);
+
+            if (unit.unitClass == Class.Warlock) unit.SubtractHealPoints(1);
+
+            if (isTowerDead)
+            {
                 Debug.Log("TowerDead");
                 UIManager.Instance.FinishGame(unit.faction);
             }
@@ -261,60 +307,68 @@ namespace Tiles
             ChangeTurn(unit);
         }
 
-        public void AttackFromTower() {
+        public void AttackFromTower()
+        {
             _bullet.AnimBullet(_tileUnit);
         }
-        
-        private void Heal(BaseUnit unit) {
+
+        private void Heal(BaseUnit unit)
+        {
             if (!_canBeHealed) return;
-            unit.HealAnimation(); 
-            unit.HealSound();
+            _tileUnit.HealAnimation();
+            _tileUnit.HealSound();
             _tileUnit.HealUnit(1);
             unit.SubtractHealPoints(1);
-            
-            GridManager.Instance.HideMoves();
-            ChangeTurn(unit);
-        }
-        
-        private void HealTower(BaseUnit unit) {
-            if (!_canBeRepair) return;
-            unit.HealAnimation(); 
-            _baseTower.HealTower(1);
-            unit.SubtractHealPoints(1);
-            
+
             GridManager.Instance.HideMoves();
             ChangeTurn(unit);
         }
 
-        private void ChangeTurn(BaseUnit unit) {
+        private void HealTower(BaseUnit unit)
+        {
+            if (!_canBeRepair) return;
+            unit.HealAnimation();
+            _baseTower.HealTower(1);
+            unit.SubtractHealPoints(1);
+
+            GridManager.Instance.HideMoves();
+            ChangeTurn(unit);
+        }
+
+        private void ChangeTurn(BaseUnit unit)
+        {
             GameManager.ClearMove();
             var gameManager = GameManager.Instance;
             if (gameManager.IsTurnOver()) gameManager.ChangeState(unit.faction == Angels ? OrcsTurn : AngelsTurn);
         }
 
         //EVENTS
-    
+
         /**
  * Enables a highlight resource to each tile when mouse is over the tile
  */
-        private void OnMouseEnter() {
+        private void OnMouseEnter()
+        {
             if (GameManager.Instance.isPaused) return;
             SetHighLightedTile();
         }
+
         /**
  * Disables a highlight resource to each tile when mouse leaves the tile
  */
-        private void OnMouseExit() {
+        private void OnMouseExit()
+        {
             if (GameManager.Instance.isPaused) return;
             ClearMouseHighLights();
         }
-    
+
         /**
  * When a Tile is clicked Units turns are managed to move or destroy another unit.
  */
-        private void OnMouseDown() {
+        private void OnMouseDown()
+        {
             if (GameManager.Instance.isPaused) return;
-            
+
             Debug.Log("Mouse clicked: " + TileName);
             switch (GameManager.Instance.gameState)
             {

@@ -162,8 +162,8 @@ namespace Managers
             if (tile.IsOcuppiedByATower()) {
                 Debug.Log("IS OCCUPIED BY A TOWER");
                 //When its magician we set the tile to be possible to heal
-                if (selectedUnit.unitClass == Class.OrcRepair 
-                    && tile.TowerCanBeRepaired()
+                if (selectedUnit.unitClass == Class.Warlock 
+                    && tile.TowerCanBeRepaired(selectedUnit.faction)
                     && selectedUnit.HealSystem.GetHealPoints() > 0
                    ) {
                     tile.SetTileAsPossibleMovementTowerRepaier();

@@ -2,8 +2,10 @@ using Managers;
 using Tiles;
 using UnityEngine;
 
-namespace Units {
-    public class BaseUnit : MonoBehaviour { 
+namespace Units
+{
+    public class BaseUnit : MonoBehaviour
+    {
         public BaseTile occupiedBaseTile;
         public Faction faction;
         public Class unitClass;
@@ -23,47 +25,60 @@ namespace Units {
         private Animator anim;
 
         // Start is called before the first frame update
-        private void Start() {
+        private void Start()
+        {
             HealthSystem = new HealthSystem(unitMaxHealth);
             healthBar.Setup(HealthSystem);
             Debug.Log($"Unit name: {unitName} | Health: {healthBar._healthSystem.GetHealthPercent()}");
 
-            if (unitClass == Class.Magician) {
+            if (unitClass == Class.Magician || unitClass == Class.Warlock)
+            {
                 HealSystem = new HealSystem(3);
                 healBar.Setup(HealSystem);
             }
-            
+
             anim = gameObject.GetComponent<Animator>();
         }
 
-        public bool DamageUnit(int damage) {
+        public bool DamageUnit(int damage)
+        {
             var isDead = false;
             HealthSystem.Damage(damage);
             HitSound();
             if (HealthSystem.GetHealth() > 0) anim.Play("Hurt");
-            else {
+            else
+            {
                 Debug.Log("Dying");
-                Dying(); 
+                Dying();
                 DyingSound();
                 isDead = true;
                 isAlive = false;
                 occupiedBaseTile._tileUnit = null;
                 occupiedBaseTile = null;
             }
+
             return isDead;
         }
-        
-        public void SubtractHealPoints(int healPoints) {
-            if (unitClass == Class.Magician) HealSystem.SubtractHealPoints(healPoints);
+
+        public void SubtractHealPoints(int healPoints)
+        {
+            if (unitClass == Class.Magician || unitClass == Class.Warlock) HealSystem.SubtractHealPoints(healPoints);
         }
 
         private void Dying() => anim.Play("Dying");
 
         public void HealUnit(int heal) => HealthSystem.Heal(heal);
         public void ManaUnit(int heal) => HealSystem.AddHealPoints(heal);
-        
+
         public void AttackAnimation() => anim.Play("Slashing");
+
         public void HealAnimation() => anim.Play("Throwing");
+
+
+        public void MaxOutAnimation() => anim.Play("MaxOut");
+
+
+        public void ManaAnimation() => anim.Play("Mana");
 
         public void AttackSound() => SoundManager.Instance.playAttackSound();
         public void HitSound() => SoundManager.Instance.playHurtSound();

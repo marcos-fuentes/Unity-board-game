@@ -36,7 +36,7 @@ namespace Managers
         [SerializeField] private Sprite orcImage, ogreImage, goblinImage, angelImage, magicianImage, warriorImage;
         [SerializeField] private GameObject _countDownObject, _pauseObject;
         [SerializeField] private GameObject _selectedUnitContainer;
-        
+
 
         public float timePerTurn = 30.5f;
         public float timeRemaining = 30.5f;
@@ -64,34 +64,60 @@ namespace Managers
             _helpBackButton.onClick.AddListener(OnBackHelpButtonClicked);
             _optionsButton.onClick.AddListener(OnOptionsButtonPressed);
             _optionsBackButton.onClick.AddListener(OnOptionsBackButtonPressed);
-            
+
             _endButtonRestart.onClick.AddListener(OnButtonRestartPressed);
             _endButtonExit.onClick.AddListener(OnButtonExitPressed);
         }
-        
+
+        private bool isAnyMenuOpen() => _optionsMenuObject.activeSelf || _helpMenuObject.activeSelf;
 
         private void OnHelpButttonClicked()
-        { 
-            _helpMenuObject.SetActive(true);
+        {
+            if (!isAnyMenuOpen())
+            {
+                _helpMenuObject.SetActive(true);
+            }
         }
-        
+
         private void OnBackHelpButtonClicked()
-        { 
-            _helpMenuObject.SetActive(false);
-        }
-        
-        private void OnOptionsBackButtonPressed() => _optionsMenuObject.SetActive(false);
-        private void OnOptionsButtonPressed() => _optionsMenuObject.SetActive(true);
-        
-        private void OnButtonExitPressed() => GameManager.Instance.GoToMainMenu();
-        private void OnButtonRestartPressed() => GameManager.Instance.GoToGameScene();
-        
-        private void OnPauseClick()
         {
             _helpMenuObject.SetActive(false);
-            _pauseObject.SetActive(!_pauseObject.activeSelf);
-            timerIsRunning = !timerIsRunning;
-            GameManager.Instance.SetStatusPause(_pauseObject.activeSelf);
+        }
+
+        private void OnOptionsBackButtonPressed() => _optionsMenuObject.SetActive(false);
+
+        private void OnOptionsButtonPressed()
+        {
+            if (!isAnyMenuOpen())
+            {
+                _optionsMenuObject.SetActive(true);
+            }
+        }
+
+        private void OnButtonExitPressed()
+        {
+            if (!isAnyMenuOpen())
+            {
+                GameManager.Instance.GoToMainMenu();
+            }
+        } 
+        private void OnButtonRestartPressed() => GameManager.Instance.GoToGameScene();
+
+        private void OnPauseClick()
+        {
+            if (!isAnyMenuOpen())
+            {
+                closeOptionsMenu();
+                _pauseObject.SetActive(!_pauseObject.activeSelf);
+                timerIsRunning = !timerIsRunning;
+                GameManager.Instance.SetStatusPause(_pauseObject.activeSelf);
+            }
+        }
+
+        private void closeOptionsMenu()
+        {
+            _helpMenuObject.SetActive(false);
+            _optionsMenuObject.SetActive(false);
         }
 
         void TaskOnClick()
@@ -130,29 +156,29 @@ namespace Managers
         {
             if (unit != null)
             {
-                var unitNameClean = unit.name.Replace("(Clone)", "");
-                _selectedUnitNameText.text = $"UNIT: {unitNameClean}";
+                var unitNameClean = unit.unitClass;
+                _selectedUnitNameText.text = $"CLASS: {unitNameClean}";
                 _movementAreaStatText.text = $"MOV AREA: {unit.movementArea}";
                 _attackDamageStat.text = $"ATTACK DMG: {unit.attackDamage}";
 
-                switch (unitNameClean.ToLower())
+                switch (unitNameClean)
                 {
-                    case "assassin":
+                    case Class.Assassin:
                         selectedUnitImage.sprite = angelImage;
                         break;
-                    case "magician":
+                    case Class.Magician:
                         selectedUnitImage.sprite = magicianImage;
                         break;
-                    case "warrior":
+                    case Class.Warrior:
                         selectedUnitImage.sprite = warriorImage;
                         break;
-                    case "goblin":
+                    case Class.Rogue:
                         selectedUnitImage.sprite = goblinImage;
                         break;
-                    case "ogre":
+                    case Class.Warlock:
                         selectedUnitImage.sprite = ogreImage;
                         break;
-                    case "orc":
+                    case Class.Tank:
                         selectedUnitImage.sprite = orcImage;
                         break;
                     default:
@@ -175,7 +201,7 @@ namespace Managers
             _angelsWon.SetActive(faction == Faction.Angels);
             GameManager.Instance.SetStatusPause(true);
             SoundManager.Instance.PlayVictoryMusic();
-            
+
             _theEnd.SetActive(true);
         }
 
