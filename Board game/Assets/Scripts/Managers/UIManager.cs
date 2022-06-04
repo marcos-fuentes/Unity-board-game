@@ -1,7 +1,6 @@
 using System;
 using Units;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Managers
@@ -20,6 +19,11 @@ namespace Managers
         [SerializeField] private Button _helpBackButton;
         [SerializeField] private Button _optionsButton;
         [SerializeField] private Button _optionsBackButton;
+        [SerializeField] private Button _showFpsEnabled;
+
+        [SerializeField] Sprite onShowFpsSprite;
+        [SerializeField] Sprite offShowFpsSprite;
+
 
         [SerializeField] private Button _skipTurnButton, _endButtonExit, _endButtonRestart;
         [SerializeField] private GameObject _tileObject, _tileUnitObject;
@@ -64,7 +68,7 @@ namespace Managers
             _helpBackButton.onClick.AddListener(OnBackHelpButtonClicked);
             _optionsButton.onClick.AddListener(OnOptionsButtonPressed);
             _optionsBackButton.onClick.AddListener(OnOptionsBackButtonPressed);
-
+            _showFpsEnabled.onClick.AddListener(OnShowFpsClicked);
             _endButtonRestart.onClick.AddListener(OnButtonRestartPressed);
             _endButtonExit.onClick.AddListener(OnButtonExitPressed);
         }
@@ -100,7 +104,8 @@ namespace Managers
             {
                 GameManager.Instance.GoToMainMenu();
             }
-        } 
+        }
+
         private void OnButtonRestartPressed() => GameManager.Instance.GoToGameScene();
 
         private void OnPauseClick()
@@ -118,6 +123,20 @@ namespace Managers
         {
             _helpMenuObject.SetActive(false);
             _optionsMenuObject.SetActive(false);
+        }
+
+        private void OnShowFpsClicked()
+        {
+            if (FPSManager.Instance.isRunning)
+            {
+                _showFpsEnabled.GetComponent<Image>().sprite = offShowFpsSprite;
+                FPSManager.Instance.isRunning = false;
+            }
+            else
+            {
+                _showFpsEnabled.GetComponent<Image>().sprite = onShowFpsSprite;
+                FPSManager.Instance.isRunning = true;
+            }
         }
 
         void TaskOnClick()

@@ -1261,7 +1261,7 @@ MonoBehaviour:
   attackArea: 1
   healthBar: {fileID: 9162916587357569461}
   healBar: {fileID: 6537836165921718219}
-  attackDamage: 1
+  attackDamage: 2
 --- !u!114 &114033494636675462
 MonoBehaviour:
   m_ObjectHideFlags: 0
