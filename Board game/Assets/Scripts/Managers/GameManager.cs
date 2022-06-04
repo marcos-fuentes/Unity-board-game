@@ -180,8 +180,8 @@ namespace Managers
             CheckIfGameIsFinished();
         }
 
-        public void GoToMainMenu() => SceneManager.LoadScene("MainMenu");
-        public void GoToGameScene() => SceneManager.LoadScene("SampleScene");
+        public void GoToMainMenu() => SceneManager.LoadScene("MainMenuScene");
+        public void GoToGameScene() => SceneManager.LoadScene("GameScene");
     }
 
     public enum GameState

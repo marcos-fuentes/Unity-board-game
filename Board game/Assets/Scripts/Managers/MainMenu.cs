@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!isAnyMenuOpen())
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("GameScene");
         }
     }
 

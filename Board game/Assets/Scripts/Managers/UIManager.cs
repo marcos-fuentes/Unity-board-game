@@ -1,7 +1,7 @@
 using System;
+using UI;
 using Units;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Managers
@@ -20,6 +20,11 @@ namespace Managers
         [SerializeField] private Button _helpBackButton;
         [SerializeField] private Button _optionsButton;
         [SerializeField] private Button _optionsBackButton;
+        [SerializeField] private Button _showFpsEnabled;
+
+        [SerializeField] Sprite onShowFpsSprite;
+        [SerializeField] Sprite offShowFpsSprite;
+
 
         [SerializeField] private Button _skipTurnButton, _endButtonExit, _endButtonRestart;
         [SerializeField] private GameObject _tileObject, _tileUnitObject;
@@ -42,6 +47,7 @@ namespace Managers
         public float timeRemaining = 30.5f;
         public bool timerIsRunning = true;
         public Text timeText;
+        private FPSCounter _fpsCounter;
 
 
         void DisplayTime(float timeToDisplay) => timeText.text = string.Format("{0:00}", (int) timeToDisplay % 60);
@@ -64,9 +70,10 @@ namespace Managers
             _helpBackButton.onClick.AddListener(OnBackHelpButtonClicked);
             _optionsButton.onClick.AddListener(OnOptionsButtonPressed);
             _optionsBackButton.onClick.AddListener(OnOptionsBackButtonPressed);
-
+            _showFpsEnabled.onClick.AddListener(OnShowFpsClicked);
             _endButtonRestart.onClick.AddListener(OnButtonRestartPressed);
             _endButtonExit.onClick.AddListener(OnButtonExitPressed);
+            _fpsCounter = gameObject.AddComponent<FPSCounter>();
         }
 
         private bool isAnyMenuOpen() => _optionsMenuObject.activeSelf || _helpMenuObject.activeSelf;
@@ -100,7 +107,8 @@ namespace Managers
             {
                 GameManager.Instance.GoToMainMenu();
             }
-        } 
+        }
+
         private void OnButtonRestartPressed() => GameManager.Instance.GoToGameScene();
 
         private void OnPauseClick()
@@ -118,6 +126,20 @@ namespace Managers
         {
             _helpMenuObject.SetActive(false);
             _optionsMenuObject.SetActive(false);
+        }
+
+        private void OnShowFpsClicked()
+        {
+            if (_fpsCounter.isRunning)
+            {
+                _showFpsEnabled.GetComponent<Image>().sprite = offShowFpsSprite;
+                _fpsCounter.isRunning = false;
+            }
+            else
+            {
+                _showFpsEnabled.GetComponent<Image>().sprite = onShowFpsSprite;
+                _fpsCounter.isRunning = true;
+            }
         }
 
         void TaskOnClick()
@@ -192,7 +214,7 @@ namespace Managers
             {
                 _selectedUnitContainer.SetActive(false);
             }
-            //( _selectedUnitObject.GetComponentInChildren<Text>().text = unit.unitName;
+            
         }
 
         public void FinishGame(Faction faction)
@@ -222,6 +244,29 @@ namespace Managers
                     GameManager.Instance.SkipTurn();
                 }
             }
+        }
+
+        static public string getSystemInfo()
+        {
+            string str = "<color=red>SYSTEM INFO</color>";
+
+            #if UNITY_IOS
+                    str += "\n[iphone generation]"+UnityEngine.iOS.Device.generation.ToString();
+            #endif
+
+            #if UNITY_ANDROID
+                        str += "\n[system info]" + SystemInfo.deviceModel;
+            #endif
+
+            str += "\n[type]" + SystemInfo.deviceType;
+            str += "\n[os version]" + SystemInfo.operatingSystem;
+            str += "\n[system memory size]" + SystemInfo.systemMemorySize;
+            str += "\n[graphic device name]" + SystemInfo.graphicsDeviceName + " (version " +
+                   SystemInfo.graphicsDeviceVersion + ")";
+            str += "\n[graphic memory size]" + SystemInfo.graphicsMemorySize;
+            str += "\n[platform] " + Application.platform;
+            
+            return str;
         }
     }
 }
